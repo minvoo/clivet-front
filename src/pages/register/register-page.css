@@ -1,0 +1,52 @@
+.custom-card {
+    width: 350px;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 0.322em;
+    margin-bottom: 10vh;
+    position: absolute;
+    top:20%;
+    left:20%;
+
+}
+
+.blank{
+    padding-top: 10vh;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.8em;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.card-subtitle {
+    font-weight: normal;
+    font-size: 0.8em;
+    text-align: center;
+    color: gray;
+}
+
+.form-input-custom {
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+.background {
+    background: url('/public/registerpage.png') no-repeat center center;
+    height: auto;
+    align-content: center;
+    min-height: 89vh;
+    align-items: center;
+    background-size: 100% auto;
+    justify-content: left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+
+
+
+}
