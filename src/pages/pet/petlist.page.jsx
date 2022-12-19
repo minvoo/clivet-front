@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import User from "../../models/user";
 import {useDispatch, useSelector} from "react-redux";
-import {Link, NavLink, useNavigate, useParams} from "react-router-dom";
+import {Link, NavLink, useNavigate, useParams, useHistory} from "react-router-dom";
 import AuthenticationService from "../../services/authentication.service";
 import {setCurrentUser} from "../../store/actions/user";
 import {Button, Table, TableBody, TableHead, TableRow} from "@mui/material";
@@ -13,10 +13,7 @@ const PetListPage = () => {
     const [fistName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-
-    const navigate = useNavigate()
-
-    const currentUser = useSelector(state => state.user);;
+    const navigate = useNavigate();
     const {id} = useParams();
     //mounted
     useEffect(() => {
@@ -57,7 +54,6 @@ const PetListPage = () => {
                                     <td><NavLink to={`/owners/{id}`} className="btn btn-info">View details</NavLink>
                                     </td>
                                 </tr>
-                            )}
                             </tbody>
                         </table>
                     </div>

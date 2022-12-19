@@ -32,7 +32,8 @@ function App() {
                             <AdminPage/>
                         </AuthGuard>}/>
 
-                    <Route path="/owners/:id/pets" element={HomePage}/>
+                    <Route path="/owners/:id/pets" element={PetListPage}/>
+                    <Route path="/pets" element={PetListPage}/>
 
                     <Route path="/profile" element={<AuthGuard roles={[Role.USER, Role.ADMIN]}><ProfilePage/></AuthGuard>}/>
                     <Route path="*" element={<NotFoundPage/>}/>
