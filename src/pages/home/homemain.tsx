@@ -4,20 +4,11 @@ import { Button, Typography } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Groups";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import RoomIcon from "@mui/icons-material/Room";
-import * as Styled from "./homecomponents"
+import * as Styled from "./homecomponents";
 
-const HomePage = () => {
-return (
-
-<div
-        style={{
-            minHeight:'100vh',
-            display:'flex',
-            flexDirection:'column',
-            justifyContent:'space-between'
-        }}
-        >
- <div>
+const HomeMain = () => {
+  return (
+    <div>
       <Styled.DivSlogan>
         <Styled.DivSloganText>
           <Styled.DivSloganInnerText>
@@ -165,7 +156,6 @@ return (
         </Styled.DivInnerContact>
       </Styled.DivContact>
     </div>
-    </div>
   );
 };
-export {HomePage};
+export default HomeMain;

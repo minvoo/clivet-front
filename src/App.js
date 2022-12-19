@@ -11,6 +11,7 @@ import {UnauthorizedPage} from "./pages/unauthorized/unauthorized.page";
 import {Footer} from "./components/footer";
 import {AuthGuard} from "./guards/auth.guard";
 import {Role} from "./models/role";
+import {Main} from "./pages/home/main.page"
 
 function App() {
     return (
@@ -18,7 +19,7 @@ function App() {
             <NavBar/>
             <div>
                 <Routes>
-                    <Route path="/" element={<HomePage/>}/>
+                    <Route path="/" element={<Main/>}/>
                     <Route path="/login" element={<LoginPage/>}/>
                     <Route path="/register" element={<RegisterPage/>}/>
                     <Route path="/home" element={<HomePage/>}/>
