@@ -34,12 +34,12 @@ return (
               services
             </Typography>
           </Styled.DivSloganInnerText>
-          <br />
-          <br />
+
+
           <Button
             variant="contained"
             href={"register"}
-            sx={{ my: 0, color: "white", display: "block" }}
+            sx={{ my: 0, color: "white", display: "block", margin:5}}
           >
             Register
           </Button>
@@ -50,7 +50,7 @@ return (
         <Styled.DivTwoPetsImage></Styled.DivTwoPetsImage>
         <Styled.DivTwoPetsText>
           <Styled.DivTwoPetsInnerText>
-            <Typography variant="h6">
+            <Typography variant="h6" align="center">
               At our clinic, we understand that your pets are more than just
               animals - they're a part of your family. That's why we go above
               and beyond to provide the very best in medical care and attention
@@ -62,7 +62,7 @@ return (
       <Styled.DivTeam>
         <Styled.DivTeamImage></Styled.DivTeamImage>
         <Styled.DivInnerTeam>
-          <Typography variant="h6">
+          <Typography variant="h5" fontWeight="bold">
             Our team of experienced and knowledgeable veterinarians are
             dedicated to providing high-quality care for all types of animals,
             from dogs and cats to birds, reptiles, and more. We are committed to
@@ -76,7 +76,7 @@ return (
         <Styled.DivInnerWays>
           <Styled.DivWaysTop>
             <Typography variant="h5">
-              <b>
+              <b className="mb-5">
                 Pawsitively the best way to manage your pet's health - try our
                 clinic system app today!
               </b>

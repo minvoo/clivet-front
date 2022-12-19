@@ -107,6 +107,7 @@ export const DivWaysBottom = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  margin-top: 70px;
 `;
 export const DivWaysBottomElement = styled.div`
   display: flex;
@@ -116,6 +117,7 @@ export const DivWaysBottomElement = styled.div`
   text-align: center;
   width: 30%;
   height: 100%;
+  margin-bottom: 90px;
 `;
 
 export const DivCost = styled.div`
@@ -151,6 +153,7 @@ export const DivCostText = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  font-weight: bold;
 `;
 export const DivContact = styled.div`
   display: flex;
