@@ -5,8 +5,20 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import RoomIcon from "@mui/icons-material/Room";
 import * as Styled from "./homecomponents"
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import {clearCurrentUser} from "../../store/actions/user";
 
 const HomePage = () => {
+
+  const currentUser = useSelector(state => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const logout = () => {
+    dispatch(clearCurrentUser());
+    navigate('/login');
+  }
+
 return (
 
 <div
@@ -35,14 +47,15 @@ return (
             </Typography>
           </Styled.DivSloganInnerText>
 
-
-          <Button
-            variant="contained"
-            href={"register"}
-            sx={{ my: 0, color: "white", display: "block", margin:5}}
-          >
-            Register
-          </Button>
+          {!currentUser &&
+              <Button
+                  variant="contained"
+                  href={"register"}
+                  sx={{my: 0, color: "white", display: "block", margin: 5}}
+              >
+                Register
+              </Button>
+          }
         </Styled.DivSloganText>
         <Styled.DivSloganEmpty></Styled.DivSloganEmpty>
       </Styled.DivSlogan>
@@ -145,21 +158,21 @@ return (
           </Styled.DivContactTop>
           <Styled.DivContactBottom>
             <Styled.DivContactElement>
-              <Typography variant="h6">Address</Typography>
+              <Typography fontWeight={"bold"} fontSize={20}>Address</Typography>
               <br />
-              <Typography variant="h6">
-                Warsaw, al. Jerozolimskie 1 11-111 Warsaw Poland
+              <Typography fontSize={17} pt={1}>
+                Warsaw, al. Jerozolimskie 1 <br />11-111 Warsaw Poland
               </Typography>
             </Styled.DivContactElement>
             <Styled.DivContactElement>
-              <Typography variant="h6">Phone</Typography>
+              <Typography fontWeight={"bold"} fontSize={20} >Phone</Typography>
               <br />
-              <Typography variant="h6">+(000) 123 4567 89</Typography>
+              <Typography fontSize={17} pt={1}>+(000) 123 4567 89</Typography>
             </Styled.DivContactElement>
             <Styled.DivContactElement>
-              <Typography variant="h6">Email</Typography>
+              <Typography fontSize={20} fontWeight={"bold"}>Email</Typography>
               <br />
-              <Typography variant="h6">john@doe.pl</Typography>
+              <Typography fontSize={17} pt={1}>john@doe.pl</Typography>
             </Styled.DivContactElement>
           </Styled.DivContactBottom>
         </Styled.DivInnerContact>

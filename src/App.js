@@ -8,7 +8,7 @@ import {ProfilePage} from "./pages/profile/profile.page";
 import {AdminPage} from "./pages/admin/admin.page";
 import {NotFoundPage} from "./pages/not-found/not-found.page";
 import {UnauthorizedPage} from "./pages/unauthorized/unauthorized.page";
-import {Footer} from "./components/footer";
+import Footer from "./components/footer";
 import {AuthGuard} from "./guards/auth.guard";
 import {Role} from "./models/role";
 import {Main} from "./pages/home/main.page"

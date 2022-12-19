@@ -1,0 +1,17 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-elements a:hover {
+    color: #2286e3;
+    transition-duration: 0.5s;
+}
+
+a:visited {
+    color: white;
+}
+
+.footer-elements a {
+    color: white;
+}

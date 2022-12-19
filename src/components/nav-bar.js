@@ -15,13 +15,13 @@ const NavBar = () => {
         navigate('/login');
     }
     return (
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-            <NavLink to="/" className="navbar-brand ms-1">
-                <img src={logo} className="App-logo" alt="logo"/>
+        <nav className="navbar navbar-expand navbar-dark navbar-custom">
+            <NavLink to="/" className="navbar-brand ms-1 ">
+                <img src="/clivet-logo.png" className="App-logo" alt="logo"/>
                 CLIVET
             </NavLink>
             {currentUser?.role ===  Role.ADMIN &&
-                <div className="navbar-nav me-auto">
+                <div className="navbar-nav">
                     <li className="nav-item">
                         <NavLink to="/owners" className="nav-link">
                             Admin

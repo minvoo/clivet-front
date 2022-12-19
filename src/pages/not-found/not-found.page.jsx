@@ -1,9 +1,9 @@
 import {NavLink} from "react-router-dom";
-
+import './notfound.css';
 const NotFoundPage = () => {
 
     return (
-        <div className="container">
+        <div className="container ">
             <div className="row" style={{alignContent: "center"}}>
                 <div className="col-md12 text-center">
                     <div>
