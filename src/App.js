@@ -33,7 +33,7 @@ function App() {
                         </AuthGuard>}/>
 
                     <Route path="/owners/:id/pets" element={PetListPage}/>
-                    <Route path="/pets" element={PetListPage}/>
+                    <Route path="/pets" element={PetListPage}/> //to tylko do testow
 
                     <Route path="/profile" element={<AuthGuard roles={[Role.USER, Role.ADMIN]}><ProfilePage/></AuthGuard>}/>
                     <Route path="*" element={<NotFoundPage/>}/>
