@@ -26,12 +26,12 @@ function App() {
                     <Route path="/404" element={<NotFoundPage/>}/>
                     <Route path="/401" element={<UnauthorizedPage/>}/>
 
-                    <Route path="/admin" element={
+                    <Route path="/owners" element={
                         <AuthGuard roles={[Role.ADMIN]}>
                             <AdminPage/>
                         </AuthGuard>}/>
 
-                    <Route path="/profile" element={<AuthGuard roles={[Role.USER]}><ProfilePage/></AuthGuard>}/>
+                    <Route path="/profile" element={<AuthGuard roles={[Role.USER, Role.ADMIN]}><ProfilePage/></AuthGuard>}/>
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
             </div>
