@@ -12,6 +12,7 @@ import Footer from "./components/footer";
 import {AuthGuard} from "./guards/auth.guard";
 import {Role} from "./models/role";
 import {Main} from "./pages/home/main.page"
+import {PetListPage} from "./pages/pet/petlist.page";
 
 function App() {
     return (
@@ -30,6 +31,8 @@ function App() {
                         <AuthGuard roles={[Role.ADMIN]}>
                             <AdminPage/>
                         </AuthGuard>}/>
+
+                    <Route path="/owners/:id/pets" element={HomePage}/>
 
                     <Route path="/profile" element={<AuthGuard roles={[Role.USER, Role.ADMIN]}><ProfilePage/></AuthGuard>}/>
                     <Route path="*" element={<NotFoundPage/>}/>

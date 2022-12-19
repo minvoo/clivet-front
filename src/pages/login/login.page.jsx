@@ -7,7 +7,7 @@ import User from "../../models/user";
 import {useDispatch, useSelector} from "react-redux";
 import AuthenticationService from "../../services/authentication.service";
 import {setCurrentUser} from "../../store/actions/user";
-
+import '../register/register-page.css';
 const LoginPage = () => {
 
     const [user, setUser] = useState(new User('', ''));

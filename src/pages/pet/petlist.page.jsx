@@ -1,22 +1,29 @@
 import {useEffect, useState} from "react";
-import {useSelector} from "react-redux";
-import {NavLink, useNavigate} from "react-router-dom";
-import './admin.css';
+import User from "../../models/user";
+import {useDispatch, useSelector} from "react-redux";
+import {Link, NavLink, useNavigate, useParams} from "react-router-dom";
+import AuthenticationService from "../../services/authentication.service";
+import {setCurrentUser} from "../../store/actions/user";
+import {Button, Table, TableBody, TableHead, TableRow} from "@mui/material";
 import UserService from "../../services/user.service";
 import 'bootstrap/dist/css/bootstrap.css';
+import './pet-page.css';
+const PetListPage = () => {
 
-const AdminPage = () => {
-
-    const [ownerList, setOwnerList] = useState([]);
+    const [fistName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
 
     const navigate = useNavigate()
-    const currentUser = useSelector(state => state.user);
-    ;
 
+    const currentUser = useSelector(state => state.user);;
+    const {id} = useParams();
     //mounted
     useEffect(() => {
-        UserService.getOwnersList().then((response) => {
-            setOwnerList(response.data);
+        UserService.getOwnerById(id).then((response) => {
+            setFirstName(response.data.firstName);
+            setLastName(response.data.lastName);
+            setEmail(response.data.email);
         });
     }, []);
 
@@ -26,7 +33,6 @@ const AdminPage = () => {
 
                 <div className="card">
                     <div className="card-header">
-
                         <div className="row">
                             <div className="col-6">
                                 <h3>All owners</h3>
@@ -44,14 +50,11 @@ const AdminPage = () => {
                             </tr>
                             </thead>
                             <tbody>
-
-                            {ownerList.map((item, ind) =>
-                                <tr key={item.id}>
-                                    <th scope="row">{ind + 1}</th>
-                                    <td>{item.firstName}</td>
-                                    <td>{item.lastName}</td>
-                                    <td>
-                                        <NavLink to={`/owners/${item.id}/pets`} className="btn btn-info">View details</NavLink>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td><NavLink to={`/owners/{id}`} className="btn btn-info">View details</NavLink>
                                     </td>
                                 </tr>
                             )}
@@ -63,4 +66,4 @@ const AdminPage = () => {
         </div>
     )
 }
-export {AdminPage}
+export { PetListPage }

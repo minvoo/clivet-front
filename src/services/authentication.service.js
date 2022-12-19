@@ -14,15 +14,6 @@ class AuthenticationService {
         return axios.post(BASE_URL+'login', user);
     }
 
-    getAll(){
-        return axios.get(BASE_URL+'owners')
-    }
-    getById(ownerId){
-        return axios.get(BASE_URL+'owners/{ownerId}' + ownerId)
-    }
-    addPet(pet){
-        return axios.post(BASE_URL + 'owners/{ownerId}/pets', pet)
-    }
 
 
 }
