@@ -7,7 +7,7 @@ export const DivSlogan = styled.div`
   align-items: center;
   width: 100%;
   min-height: 776px;
-  background-image: url("../strona.png");
+  background-image: url("/strona.png");
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: right;
@@ -70,7 +70,7 @@ export const DivTeamImage = styled.div`
   position: relative;
   background-repeat: no-repeat;
   background-size: 100% auto;
-  background-image: url("biggle.png");
+  background-image: url("/biggle.png");
   background-position: center;
   opacity: 0.8;
   filter: blur(4px);
