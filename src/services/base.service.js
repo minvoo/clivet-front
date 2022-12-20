@@ -5,6 +5,6 @@ export const authHeader = () => {
 
     return {
         'Content-Type': 'application/json',
-        'authorization': 'Bearer ' + currentUser?.token,
+        'Authorization': 'Bearer ' + currentUser?.token,
     };
 };

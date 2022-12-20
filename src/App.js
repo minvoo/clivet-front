@@ -36,7 +36,7 @@ function App() {
 
                     <Route path="/pets" element={<PetPage/>}/>
                     <Route path="/pets?ownerId=:ownerId" element={<PetPage/>}/>
-                    <Route path="/owners/:ownerId/pets/:petId" elemenent={<AppointmentListPage/>} exact/>
+                    <Route path="/owners/:ownerId/pets/:petId" element={<AppointmentListPage/>} exact/>
                     <Route path="/appointments?petId=:petId" element={<PetPage/>}/>
                             <Route path='/appointment' element={
                             <AuthGuard roles={[Role.ADMIN]}>

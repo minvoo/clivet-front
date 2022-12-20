@@ -17,11 +17,12 @@ const AppointmentListPage = () => {
  
     // console.log('pet id ' + petId);
     // console.log('owner id '+ ownerId);
-const search = useLocation().search;
+const search = useLocation().pathname;
+const splited = search.split("/");
 
 //tu probowalem tamtym starym sposobem ale on zamiast dla ownera id=1 bierze chyba calosc czyli id=1?petsId=1 i dlatego nie działa
-const petId=new URLSearchParams(search).get("petId");
-const ownerId = new URLSearchParams(search).get("ownerId");
+const petId=splited[4];
+const ownerId = splited[2];
 console.log('Pet id '+ petId);
 console.log('Owner id ' + ownerId);
 
@@ -39,13 +40,13 @@ console.log('Owner id ' + ownerId);
             });
 
             AppointmentService.getAppointments(petId).then((response) => {
-                setPet(response.data);
+                setAppointmentList(response.data);
                 console.log(appointmentList);
             });
 
     }, []);
 
-    return (
+    return pet?(
         <div className="background">
         <div className="p-3 custom-card">
 
@@ -59,7 +60,7 @@ console.log('Owner id ' + ownerId);
                             <p>{pet.name}</p>
                             <p>{pet.age}</p>
                             <p>{pet.weight}</p>
-                            <p>{pet.owner.firstame} {pet.owner.lastName}</p>
+                          {pet.owner&&  <p>{pet.owner.firstName} {pet.owner.lastName}</p>}  
                             </div>
                             <div className="card-body">
                         <table className="table table-striped">
@@ -92,6 +93,6 @@ console.log('Owner id ' + ownerId);
                     </div>
                     </div>
                     </div>
-    );
+    ):<></>;
 };
 export {AppointmentListPage};

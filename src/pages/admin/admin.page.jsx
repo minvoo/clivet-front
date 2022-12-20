@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import {NavLink, useNavigate} from "react-router-dom";
+import {NavLink, Outlet, useNavigate} from "react-router-dom";
 import './admin.css';
 import UserService from "../../services/user.service";
 import 'bootstrap/dist/css/bootstrap.css';
@@ -21,6 +21,7 @@ const AdminPage = () => {
 
     return (
         <div className="background">
+            <Outlet></Outlet>
             <div className="p-3 custom-card">
 
                 <div className="card">
