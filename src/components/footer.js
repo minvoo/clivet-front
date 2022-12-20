@@ -21,8 +21,8 @@ const Footer = () => {
                             </Typography>
                             <br />
                             <Typography fontSize={14}>
-                                We are one of the oldest and also the largest clinics in the
-                                region. We provide comprehensive services in the field of
+                                We are one of the oldest and largest clinics in the
+                                region. We provide services in the field of
                                 veterinary medicine, nutrition and animal care
                             </Typography>
                         </Styled.DivInnerContent>
@@ -30,13 +30,15 @@ const Footer = () => {
                     <Styled.DivContent>
                         <Styled.DivInnerContent>
                             <Typography pb={3} pt={3} fontSize={25} fontWeight={"bold"}>Contact</Typography>
-                            <br />
+                            
                             <Typography fontSize={14}>
                                 Address: 34 Street Name, City Name
                                 <br />
                                 Telephone:+1 242 4942 290
                                 <br />
                                 Email:info@yourdomain.com
+                                <br />
+                                 
                             </Typography>
                         </Styled.DivInnerContent>
                     </Styled.DivContent>

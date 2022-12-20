@@ -29,7 +29,7 @@ function App() {
                     <Route path="/home" element={<HomePage />} />
                     <Route path="/404" element={<NotFoundPage />} />
                     <Route path="/401" element={<UnauthorizedPage />} />
-
+                    <Route path="/profile/pets/:petId" element={<ProfilePetDetails/>} />
                     <Route path="/owners" element={
                         <AuthGuard roles={[Role.ADMIN]}>
                             <AdminPage />
@@ -44,7 +44,7 @@ function App() {
                             <AppointmentPage />
                         </AuthGuard>} />
                     <Route path="/profile" element={<AuthGuard roles={[Role.USER, Role.ADMIN]}><ProfilePage /></AuthGuard>} />
-                    <Route path="/profile/pets?:petId" element={<ProfilePetDetails/>} />
+                    
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </div>

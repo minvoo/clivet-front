@@ -4,19 +4,20 @@ import { NavLink,useLocation, useNavigate } from "react-router-dom";
 import ProfileService from "../../services/profile.service";
 import 'bootstrap/dist/css/bootstrap.css';
 import { useDispatch } from "react-redux";
+import { Pets } from "@mui/icons-material";
+import Pet from "../../models/pet";
+
 const ProfilePetDetails = () => {
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [pet, setPet] = useState(null);
-    const currentUser = useSelector(state => state.user);
-    const dispatch = useDispatch();
 
-    //mounted
-    const search = useLocation().search;
-    const petId = new URLSearchParams(search).get("petId");
+    const [pet, setPet] = useState(new Pet('','','','',''));
 
+    const search = useLocation().pathname;
+const splited = search.split("/");
+const petId = splited[3];
+
+console.log('splited '+ petId);
+console.log(splited);
     useEffect(() => {
 
         ProfileService.getPetLogged(petId).then((response) => {
@@ -34,7 +35,7 @@ const ProfilePetDetails = () => {
                     <div className="card-header">
                         <div className="row">
                             <div className="col-6">
-                                <h3>My profile - Appointments</h3>
+                                <h3>My profile - Appointment</h3>
                             </div>
                             <div>
                             </div>
@@ -43,24 +44,16 @@ const ProfilePetDetails = () => {
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">{pet[0].name}</th>
+                                            <th scope="col">aaa</th>
                                             <th scope="col">Pet age</th>
                                             <th scope="col">Pet details</th>
                                         </tr>
+                                
                                     </thead>
-                                    <tbody>
+                                       <tbody>
 
-                                        {pet.map((item, ind) =>
-                                            <tr key={item.id}>
-                                                <th scope="row">{ind + 1}</th>
-                                                <td>{item.name}</td>
-                                                <td>{item.age}</td>
-                                                <td>
-                                                <NavLink to={`/profile?petId=${item.id}`} className="btn btn-info">View details</NavLink>
-                                                </td>
-                                            </tr>
-                                        )}
-                                    </tbody>
+                                    
+                                    </tbody> 
                                 </table>
                             </div>
                         </div>

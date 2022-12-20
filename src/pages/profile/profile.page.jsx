@@ -58,7 +58,7 @@ const ProfilePage = () => {
                                                 <td>{item.name}</td>
                                                 <td>{item.age}</td>
                                                 <td>
-                                                <NavLink to={`?petId=${item.id}`} className="btn btn-info">View details</NavLink>
+                                                <NavLink to={`/profile?petId=${item.id}`} className="btn btn-info">View details</NavLink>
                                                 </td>
                                             </tr>
                                         )}
