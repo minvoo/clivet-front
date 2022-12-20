@@ -1,4 +1,4 @@
-.background {
+.background-admin {
     background: url('/public/client.jpg') no-repeat center center;
     height: auto;
     align-content: center;
@@ -13,8 +13,8 @@
 
 }
 
-.custom-card {
-    width: 750px;
+.custom-card-admin {
+    width: 550px;
     max-width: 100%;
     background-color: white;
     border-radius: 0.322em;

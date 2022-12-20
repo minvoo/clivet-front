@@ -47,14 +47,14 @@ console.log('Owner id ' + ownerId);
     }, []);
 
     return pet?(
-        <div className="background">
-        <div className="p-3 custom-card">
+        <div className="background-appointment">
+        <div className="p-3 custom-card-appointment">
 
             <div className="card">
                 <div className="card-header">
                     <div className="row">
                         <div className="col-6">
-                            <h3>Client details</h3>
+                            <h3>Client details - Pet</h3>
                         </div>
                         <div>
                             <p>{pet.name}</p>

@@ -3,6 +3,7 @@ import UserService from "../../services/user.service";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import PetService from "../../services/pet.service";
+import './pet-page.css';
 
 
 
@@ -38,8 +39,8 @@ console.log('Id '+ id);
     }, []);
 
     return (
-        <div className="background">
-        <div className="p-3 custom-card">
+        <div className="background-pet-admin">
+        <div className="p-3 custom-card-pet-admin">
 
             <div className="card">
                 <div className="card-header">

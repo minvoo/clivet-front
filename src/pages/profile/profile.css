@@ -1,0 +1,84 @@
+.background-profile-pet {
+    background: url('/public/petdetails.jpg') no-repeat center center;
+    height: auto;
+    align-content: center;
+    min-height: 89vh;
+    align-items: center;
+    background-size: 100% auto;
+    justify-content: left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.custom-card-profile-pet {
+    width: 550px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 0.322em;
+    margin-bottom: 10vh;
+    position: absolute;
+    top:20%;
+    left:55%;
+
+}
+
+
+.background-profile {
+    background: url('/public/petprofile.jpg') no-repeat center center;
+    height: auto;
+    width: 100%;
+    align-content: center;
+    min-height: 89vh;
+    align-items: center;
+    background-size: 100% auto;
+    justify-content: left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.custom-card-profile {
+    width: 550px;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 0.322em;
+    margin-bottom: 10vh;
+    position: absolute;
+    top:20%;
+    left:55%;
+
+}
+
+
+
+.background-profile-app {
+    background: url('/public/app-profile.jpg') no-repeat center center;
+    height: auto;
+    align-content: center;
+    min-height: 89vh;
+    align-items: center;
+    background-size: 100% auto;
+    justify-content: left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.custom-card-profile-app {
+    width: 550px;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 0.322em;
+    margin-bottom: 10vh;
+    position: absolute;
+    top:20%;
+    left:55%;
+
+}

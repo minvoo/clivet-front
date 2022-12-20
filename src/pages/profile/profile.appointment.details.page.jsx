@@ -8,6 +8,7 @@ import { Pets } from "@mui/icons-material";
 import Pet from "../../models/pet";
 import profileService from "../../services/profile.service";
 import Appointment from "../../models/appointment";
+import './profile.css';
 
 const ProfileAppointmentDetails = () => {
   const [appointment, setAppointment] = useState(
@@ -29,8 +30,8 @@ const ProfileAppointmentDetails = () => {
   }, []);
 
   return (
-    <div className="background">
-      <div className="p-3 custom-card">
+    <div className="background-profile-app">
+      <div className="p-3 custom-card-profile-app">
         <div className="card">
           <div className="card-header">
             <div className="row">

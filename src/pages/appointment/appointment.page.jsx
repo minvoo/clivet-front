@@ -66,7 +66,7 @@ return (
     <>
         <div className="background">
 
-                <div className="p-3 custom-card">
+                <div className="p-3 custom-card-appointment">
                     <p className="card-title">Appointment</p>
                     <p className="card-subtitle">Add appointment</p>
 

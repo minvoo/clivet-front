@@ -20,9 +20,9 @@ const AdminPage = () => {
     }, []);
 
     return (
-        <div className="background">
+        <div className="background-admin">
             <Outlet></Outlet>
-            <div className="p-3 custom-card">
+            <div className="p-3 custom-card-admin">
 
                 <div className="card">
                     <div className="card-header">

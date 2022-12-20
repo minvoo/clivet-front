@@ -1,5 +1,5 @@
-.background {
-    background: url('/public/client.jpg') no-repeat center center;
+.background-pet-admin {
+    background: url('/public/pet-admin-details.jpg') no-repeat center center;
     height: auto;
     align-content: center;
     min-height: 89vh;
@@ -13,8 +13,8 @@
 
 }
 
-.custom-card {
-    width: 750px;
+.custom-card-pet-admin {
+    width: 650px;
     max-width: 100%;
     background-color: white;
     border-radius: 0.322em;

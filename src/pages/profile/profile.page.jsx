@@ -7,6 +7,7 @@ import PetService from "../../services/pet.service";
 import ProfileService from "../../services/profile.service";
 import 'bootstrap/dist/css/bootstrap.css';
 import { useDispatch } from "react-redux";
+import './profile.css';
 const ProfilePage = () => {
 
     const [firstName, setFirstName] = useState('');
@@ -29,8 +30,8 @@ const ProfilePage = () => {
     }, []);
 
     return (
-        <div className="background">
-            <div className="p-3 custom-card">
+        <div className="background-profile">
+            <div className="p-3 custom-card-profile">
 
                 <div className="card">
                     <div className="card-header">

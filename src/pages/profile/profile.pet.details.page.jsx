@@ -30,8 +30,8 @@ const ProfilePetDetails = () => {
   }, []);
 
   return (
-    <div className="background">
-      <div className="p-3 custom-card">
+    <div className="background-profile-pet">
+      <div className="p-3 custom-card-profile-pet">
         <div className="card">
           <div className="card-header">
             <div className="row">
