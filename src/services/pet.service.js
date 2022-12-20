@@ -7,8 +7,12 @@ const BASE_URL = BASE_API_URL ;
 
 class PetService {
 
-    listOwnersPets(id) {
+    getPetsByOwnerId(id) {
         return axios.get(BASE_URL+'owners/'+id+'/pets', {headers: authHeader()});
+    }
+
+    getOnePetByIdAndOwnerId(petId, ownerId) {
+        return axios.get(BASE_URL+'/owners/'+ownerId+'/pets/'+petId, {headers: authHeader()});
     }
 
 }

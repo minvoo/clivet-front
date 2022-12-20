@@ -16,22 +16,22 @@ const PetPage = () => {
 
 const search = useLocation().search;
 const id=new URLSearchParams(search).get("ownerId");
-console.log(id);
+console.log('Id '+ id);
 
     //mounted
 
-    //przypisywanie zmiennych firstname,lastname, email z response, aby potem wyświetlić te dane nad tabelką zwierzaków
-    // 7 - id wpisane na sztywno do testowania dla usera o ID = 7;
     useEffect(() => {
+        
+        
         UserService.getOwnerById(id).then((response) => {
             setFirstName(response.data.firstName);
             setLastName(response.data.lastName);
             setEmail(response.data.email);
 
 
-            PetService.listOwnersPets(id).then((response) =>
+            PetService.getPetsByOwnerId(id).then((response) =>
             setPetList(response.data));
-            console.log(petList);
+            console.log('pets ' + petList);
 
         });
     }, []);
@@ -68,7 +68,7 @@ console.log(id);
                                     <td>{item.name}</td>
                                     <td>{item.age}</td>
                                     <td>
-                                        <NavLink to={`/appointments?petId=${item.id}`} className="btn btn-info">View details</NavLink>
+                                        <NavLink to={`/owners?ownerId=${id}&petId=${item.id}`} className="btn btn-info">View details</NavLink>
                                     </td>
                                 </tr>
                             )}
