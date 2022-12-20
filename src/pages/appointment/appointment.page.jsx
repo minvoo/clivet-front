@@ -1,9 +1,10 @@
-import AuthenticationService from "../../services/authentication.service";
+
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import{Link,useNavigate} from "react-router-dom"
+import{Link,useLocation,useNavigate} from "react-router-dom"
 import Appointment from "../../models/appointment"
 import'./appointment-page.css'
+import AppointmentService from "../../services/appointment.service";
 
 
 
@@ -39,6 +40,9 @@ const handleChange = (e) => {
     }));
 };
 
+const search = useLocation().search;
+const petId=new URLSearchParams(search).get("petId");
+
 const handleAppointment = (e) => {
 
     e.preventDefault();
@@ -49,7 +53,7 @@ const handleAppointment = (e) => {
         return;
     }
     setLoading(true);
-    AuthenticationService.addAppointment(appointment).then(_ => {
+    AppointmentService.addAppointment(appointment, petId).then(_ => {
         navigate('/owners');
     }).catch(error => {
             setErrorMessage('Unexpected error occurred.');

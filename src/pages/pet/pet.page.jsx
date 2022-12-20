@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import PetService from "../../services/pet.service";
 
 
+
 const PetPage = () => {
 
     const [firstName, setFirstName] = useState('');
@@ -68,7 +69,7 @@ console.log('Id '+ id);
                                     <td>{item.name}</td>
                                     <td>{item.age}</td>
                                     <td>
-                                        <NavLink to={`/owners?ownerId=${id}&petId=${item.id}`} className="btn btn-info">View details</NavLink>
+                                        <NavLink to={`/owners/${id}/pets/${item.id}`} className="btn btn-info">View details</NavLink>
                                     </td>
                                 </tr>
                             )}

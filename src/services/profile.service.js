@@ -10,6 +10,9 @@ class ProfileService {
     getCurrentUserPets() {
         return axios.get(BASE_URL+'myprofile/pets', {headers: authHeader()});
     }
+    getPetLogged(petId){
+        return axios.get(BASE_URL+'myprofile/pets/'+petId, {headers: authHeader()});
+    }
 
  
 }

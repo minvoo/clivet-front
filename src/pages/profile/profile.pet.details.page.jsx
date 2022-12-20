@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
-import UserService from "../../services/user.service";
-import { useLocation } from "react-router-dom";
-import PetService from "../../services/pet.service";
+import { NavLink,useLocation, useNavigate } from "react-router-dom";
 import ProfileService from "../../services/profile.service";
 import 'bootstrap/dist/css/bootstrap.css';
 import { useDispatch } from "react-redux";
-const ProfilePage = () => {
+const ProfilePetDetails = () => {
 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [petList, setPetList] = useState([]);
+    const [pet, setPet] = useState(null);
     const currentUser = useSelector(state => state.user);
     const dispatch = useDispatch();
 
     //mounted
-   
+    const search = useLocation().search;
+    const petId = new URLSearchParams(search).get("petId");
 
     useEffect(() => {
 
-        ProfileService.getCurrentUserPets().then((response) => {
-            setPetList(response.data);
+        ProfileService.getPetLogged(petId).then((response) => {
+            setPet(response.data);
             console.log(response.data);
-            console.log('pet list ' + petList);
+            
         });
     }, []);
 
@@ -36,7 +34,7 @@ const ProfilePage = () => {
                     <div className="card-header">
                         <div className="row">
                             <div className="col-6">
-                                <h3>My profile</h3>
+                                <h3>My profile - Appointments</h3>
                             </div>
                             <div>
                             </div>
@@ -45,20 +43,20 @@ const ProfilePage = () => {
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">{currentUser?.firstName} TU DZIAŁA!gt</th>
+                                            <th scope="col">{pet[0].name}</th>
                                             <th scope="col">Pet age</th>
                                             <th scope="col">Pet details</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        {petList.map((item, ind) =>
+                                        {pet.map((item, ind) =>
                                             <tr key={item.id}>
                                                 <th scope="row">{ind + 1}</th>
                                                 <td>{item.name}</td>
                                                 <td>{item.age}</td>
                                                 <td>
-                                                <NavLink to={`?petId=${item.id}`} className="btn btn-info">View details</NavLink>
+                                                <NavLink to={`/profile?petId=${item.id}`} className="btn btn-info">View details</NavLink>
                                                 </td>
                                             </tr>
                                         )}
@@ -74,4 +72,4 @@ const ProfilePage = () => {
         </div>
     );
 };
-export { ProfilePage };
+export { ProfilePetDetails };
