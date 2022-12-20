@@ -12,8 +12,10 @@ class PetService {
     }
 
     getOnePetByIdAndOwnerId(petId, ownerId) {
-        return axios.get(BASE_URL+'/owners/'+ownerId+'/pets/'+petId, {headers: authHeader()});
+        return axios.get(BASE_URL+'owners/'+ownerId+'/pets/'+petId, {headers: authHeader()});
     }
+
+
 
 }
 export default new PetService();

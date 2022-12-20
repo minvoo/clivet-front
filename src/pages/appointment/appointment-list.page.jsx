@@ -12,6 +12,8 @@ const AppointmentListPage = () => {
     const [pet, setPet] = useState(null);
     const [appointmentList, setAppointmentList] = useState([]);
 
+
+
  
     // console.log('pet id ' + petId);
     // console.log('owner id '+ ownerId);
@@ -20,8 +22,8 @@ const search = useLocation().search;
 //tu probowalem tamtym starym sposobem ale on zamiast dla ownera id=1 bierze chyba calosc czyli id=1?petsId=1 i dlatego nie działa
 const petId=new URLSearchParams(search).get("petId");
 const ownerId = new URLSearchParams(search).get("ownerId");
-console.log(petId);
-console.log('Owner id ' + ownerId)
+console.log('Pet id '+ petId);
+console.log('Owner id ' + ownerId);
 
     //mounted
 

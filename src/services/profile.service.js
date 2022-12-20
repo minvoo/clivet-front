@@ -1,0 +1,16 @@
+import {BASE_API_URL} from "../common/contstants";
+import axios from "axios";
+import { authHeader } from "./base.service";
+import { useSelector } from "react-redux";
+
+
+const BASE_URL = BASE_API_URL ;
+class ProfileService {
+    
+    getCurrentUserPets() {
+        return axios.get(BASE_URL+'myprofile/pets', {headers: authHeader()});
+    }
+
+ 
+}
+export default new ProfileService();
