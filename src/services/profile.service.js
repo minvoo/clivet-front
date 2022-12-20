@@ -18,6 +18,10 @@ class ProfileService {
         return axios.get(BASE_URL+'myprofile/pets/'+petId+'/appointments', {headers: authHeader()});
     }
 
+    getAppointmentCurrentUser(appId) {
+        return axios.get(BASE_URL+'myprofile/appointments/'+appId, {headers:authHeader()});
+    }
+
  
 }
 export default new ProfileService();

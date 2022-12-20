@@ -16,6 +16,7 @@ import { AppointmentPage } from "./pages/appointment/appointment.page";
 import { PetPage } from './pages/pet/pet.page';
 import { AppointmentListPage } from './pages/appointment/appointment-list.page';
 import { ProfilePetDetails } from './pages/profile/profile.pet.details.page';
+import { ProfileAppointmentDetails } from './pages/profile/profile.appointment.details.page';
 
 function App() {
     return (
@@ -35,6 +36,7 @@ function App() {
                             <AdminPage />
                         </AuthGuard>} />
 
+                        <Route path="/profile/appointments/:appointmentId" element={<ProfileAppointmentDetails />}/>
                     <Route path="/pets" element={<PetPage />} />
                     <Route path="/pets?ownerId=:ownerId" element={<PetPage />} />
                     <Route path="/owners/:ownerId/pets/:petId" element={<AppointmentListPage />} exact />
