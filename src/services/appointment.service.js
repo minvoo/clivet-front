@@ -14,5 +14,9 @@ class AppointmentService {
         return axios.post(BASE_URL + 'pets/'+petId+'/appointments', appointment)
     }
 
+    getOneAppointment(petId, appId) {
+        return axios.get(BASE_URL + 'pets/'+petId+'/appointments/'+appId, {headers: authHeader()});
+    }
+
 }
 export default new AppointmentService();

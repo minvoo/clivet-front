@@ -79,7 +79,7 @@ console.log('Owner id ' + ownerId);
                                     <td>{item.date}</td>
                                     <td>{item.cost}</td>
                                     <td>
-                                        <NavLink to={`/appointments?petId=${item.id}`} className="btn btn-info">View details</NavLink>
+                                        <NavLink to={`/pets/${petId}/appointments/${item.id}`} className="btn btn-info">View details</NavLink>
                                     </td>
                                 </tr>
                             )}

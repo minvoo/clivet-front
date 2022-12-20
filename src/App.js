@@ -17,6 +17,7 @@ import { PetPage } from './pages/pet/pet.page';
 import { AppointmentListPage } from './pages/appointment/appointment-list.page';
 import { ProfilePetDetails } from './pages/profile/profile.pet.details.page';
 import { ProfileAppointmentDetails } from './pages/profile/profile.appointment.details.page';
+import { AppointmentDetailsAdminPage } from './pages/appointment/appointment-details.page';
 
 function App() {
     return (
@@ -35,7 +36,7 @@ function App() {
                         <AuthGuard roles={[Role.ADMIN]}>
                             <AdminPage />
                         </AuthGuard>} />
-
+                        <Route path="/pets/:petId/appointments/:appointmentId" element={<AppointmentDetailsAdminPage />}/>
                         <Route path="/profile/appointments/:appointmentId" element={<ProfileAppointmentDetails />}/>
                     <Route path="/pets" element={<PetPage />} />
                     <Route path="/pets?ownerId=:ownerId" element={<PetPage />} />
