@@ -11,6 +11,7 @@ const ProfilePetDetails = () => {
 
 
     const [pet, setPet] = useState(new Pet('','','','',''));
+    const [appointmentList, setAppointmentList] = useState([])
 
     const search = useLocation().pathname;
 const splited = search.split("/");
@@ -23,8 +24,12 @@ console.log(splited);
         ProfileService.getPetLogged(petId).then((response) => {
             setPet(response.data);
             console.log(response.data);
-            
         });
+
+        ProfileService.petListAppoitments(petId).then((appointmentResponse) => {
+            setAppointmentList(appointmentResponse.data);
+            console.log(appointmentList);
+        })
     }, []);
 
     return (
@@ -36,23 +41,34 @@ console.log(splited);
                         <div className="row">
                             <div className="col-6">
                                 <h3>My profile - Appointment</h3>
+                                <p>{pet.id} {pet.name} {pet.age} {pet.weight}</p>
                             </div>
                             <div>
                             </div>
                             <div className="card-body">
                                 <table className="table table-striped">
                                     <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">aaa</th>
-                                            <th scope="col">Pet age</th>
-                                            <th scope="col">Pet details</th>
-                                        </tr>
+                                    <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Appointment Date</th>
+                                <th scope="col">Appointment cost</th>
+                                <th scope="col">Appointment Details</th>
+                            </tr>
                                 
                                     </thead>
                                        <tbody>
-
-                                    
+                                      
+                                       {appointmentList.map((item, ind) =>
+                                <tr key={item.id}>
+                                    <th scope="row">{ind + 1}</th>
+                                    <td>{item.date}</td>
+                                    <td>{item.cost}</td>
+                                    <td>
+                                        <NavLink to={`/appointments?petId=${item.id}`} className="btn btn-info">View details</NavLink>
+                                    </td>
+                                </tr>
+                            )}
+                                      
                                     </tbody> 
                                 </table>
                             </div>

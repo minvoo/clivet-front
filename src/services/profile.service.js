@@ -14,6 +14,10 @@ class ProfileService {
         return axios.get(BASE_URL+'myprofile/pets/'+petId, {headers: authHeader()});
     }
 
+    petListAppoitments(petId){
+        return axios.get(BASE_URL+'myprofile/pets/'+petId+'/appointments', {headers: authHeader()});
+    }
+
  
 }
 export default new ProfileService();
