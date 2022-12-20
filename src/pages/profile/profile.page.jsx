@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import PetService from "../../services/pet.service";
 import ProfileService from "../../services/profile.service";
 import 'bootstrap/dist/css/bootstrap.css';
-
+import { useDispatch } from "react-redux";
 const ProfilePage = () => {
 
     const [firstName, setFirstName] = useState('');
@@ -14,7 +14,7 @@ const ProfilePage = () => {
     const [email, setEmail] = useState('');
     const [petList, setPetList] = useState([]);
     const currentUser = useSelector(state => state.user);
-
+    const dispatch = useDispatch();
 
     //mounted
 
@@ -44,7 +44,7 @@ const ProfilePage = () => {
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">{currentUser.name}</th>
+                                <th scope="col">{currentUser?.firstName} TU DZIAŁA!gt</th>
                                 <th scope="col">Pet age</th>
                                 <th scope="col">Pet details</th>
                             </tr>
