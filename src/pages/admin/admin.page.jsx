@@ -11,7 +11,6 @@ const AdminPage = () => {
 
     const navigate = useNavigate()
     const currentUser = useSelector(state => state.user);
-    ;
 
     //mounted
     useEffect(() => {
@@ -51,7 +50,7 @@ const AdminPage = () => {
                                     <td>{item.firstName}</td>
                                     <td>{item.lastName}</td>
                                     <td>
-                                        <NavLink to={`/owners/${item.id}/pets`} className="btn btn-info">View details</NavLink>
+                                        <NavLink to={`/pets?ownerId=${item.id}`} className="btn btn-info">View details</NavLink>
                                     </td>
                                 </tr>
                             )}

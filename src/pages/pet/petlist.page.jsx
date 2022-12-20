@@ -10,14 +10,18 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './pet-page.css';
 const PetListPage = () => {
 
-    const [fistName, setFirstName] = useState('');
+    const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
-    const {id} = useParams();
+
+    //pobieranie id z linka
+    //const {id} = useParams();
     //mounted
+
+    //przypisywanie zmiennych firstname,lastname, email z response, aby potem wyświetlić te dane nad tabelką zwierzaków
     useEffect(() => {
-        UserService.getOwnerById(id).then((response) => {
+        UserService.getOwnerById(1).then((response) => {
             setFirstName(response.data.firstName);
             setLastName(response.data.lastName);
             setEmail(response.data.email);
@@ -32,7 +36,11 @@ const PetListPage = () => {
                     <div className="card-header">
                         <div className="row">
                             <div className="col-6">
-                                <h3>All owners</h3>
+                                <h3>Client details</h3>
+                            </div>
+                            <div>
+                            <p>{firstName} {lastName}</p>
+                            <p>{email}</p>
                             </div>
                         </div>
                     </div>
@@ -51,7 +59,7 @@ const PetListPage = () => {
                                     <th scope="row"></th>
                                     <td></td>
                                     <td></td>
-                                    <td><NavLink to={`/owners/{id}`} className="btn btn-info">View details</NavLink>
+                                    <td><NavLink to={`/pets?ownerId={id}`} className="btn btn-info">View details</NavLink>
                                     </td>
                                 </tr>
                             </tbody>

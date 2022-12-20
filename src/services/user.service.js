@@ -12,20 +12,20 @@ class UserService {
 
     //todo do sprawdzenia
 
-    getOwnerById(user) {
-        return axios.get(API_URL + 'owners' + user.id, {headers: authHeader()})
+    getOwnerById(id) {
+        return axios.get(API_URL + 'owners/' + id, {headers: authHeader()})
     }
 
     //todo do sprawdzenia
 
-    updateOwnerById(user) {
-        return axios.patch(API_URL + 'owners' + user.id, {authHeader: authHeader()});
+    updateOwnerById(id) {
+        return axios.patch(API_URL + 'owners/' + id, {authHeader: authHeader()});
     }
 
     //todo do sprawdzenia
 
-    deleteOwnerById(user) {
-        return axios.delete(API_URL + 'owners' + user.id, {authHeader: authHeader()});
+    deleteOwnerById(id) {
+        return axios.delete(API_URL + 'owners/' + id, {authHeader: authHeader()});
     }
 }
 

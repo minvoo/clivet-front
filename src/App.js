@@ -13,6 +13,8 @@ import {AuthGuard} from "./guards/auth.guard";
 import {Role} from "./models/role";
 import {Main} from "./pages/home/main.page"
 import {PetListPage} from "./pages/pet/petlist.page";
+import {AppointmentPage} from "./pages/appointment/appointment.page";
+import { PetPage } from './pages/pet/pet.page';
 
 function App() {
     return (
@@ -32,9 +34,13 @@ function App() {
                             <AdminPage/>
                         </AuthGuard>}/>
 
-                    <Route path="/owners/:id/pets" element={PetListPage}/>
-                    <Route path="/pets" element={PetListPage}/> //to tylko do testow
+                    <Route path="/pets" element={<PetPage/>}/>
+                    <Route path="/owners?ownerId=:ownerId" element={<PetPage/>}/>
 
+                            <Route path='/appointment' element={
+                            <AuthGuard roles={[Role.ADMIN]}>
+                                <AppointmentPage/>
+                            </AuthGuard>}/>
                     <Route path="/profile" element={<AuthGuard roles={[Role.USER, Role.ADMIN]}><ProfilePage/></AuthGuard>}/>
                     <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>

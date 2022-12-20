@@ -14,6 +14,10 @@ class AuthenticationService {
         return axios.post(BASE_URL+'login', user);
     }
 
+    addAppointment(appointment){
+            return axios.post(BASE_URL + 'pets/{{petId}}/appointments', appointment)
+        }
+
 
 
 }
