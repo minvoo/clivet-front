@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import Appointment from "../../models/appointment"
 import './appointment-page.css';
@@ -56,7 +56,6 @@ const AppointmentPage = () => {
 
                 <div className="p-3 custom-card-appointment-details-admin">
                     <p className="card-title">Add appointment</p>
-                    <p className="card-subtitle">All fields are required</p>
 
                     {errorMessage &&
                         <div className="alert alert-danger">

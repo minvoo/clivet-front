@@ -68,7 +68,6 @@ const RegisterPage = () => {
 
                     <div className="p-3 custom-card">
                         <p className="card-title">Register</p>
-                        <p className="card-subtitle">All fields are required</p>
 
                         {errorMessage &&
                             <div className="alert alert-danger">

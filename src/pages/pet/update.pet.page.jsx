@@ -1,6 +1,4 @@
-import Pet from "../../models/pet";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { NavLink , useLocation, useNavigate } from "react-router-dom";
 import PetService from "../../services/pet.service";
 import "./pet-page.css";

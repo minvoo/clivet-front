@@ -21,6 +21,7 @@ import { AppointmentDetailsAdminPage } from "./pages/appointment/appointment-det
 import { AddPetPage } from "./pages/pet/add.pet.page";
 import { UpdatePetPage } from "./pages/pet/update.pet.page";
 import { ToastDisplayer } from "./components/toast.displayer";
+import { UpdateProfilPage } from "./pages/profile/update.profil.page";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/owners/:ownerId/edit" element={<UpdateProfilPage/>}/>
           <Route path="/home" element={<HomePage />} />
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="/401" element={<UnauthorizedPage />} />

@@ -1,5 +1,5 @@
 import { useState, useEffect, useParams } from "react";
-import { useLocation ,useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 import AppointmentService from "../../services/appointment.service";
@@ -29,14 +29,14 @@ const AppointmentDetailsAdminPage = () => {
     );
   }, []);
 
-  return appointment?  (
+  return appointment ? (
     <div className="background-appointment-details-admin">
       <div className="p-3 custom-card-appointment-details-admin">
         <div className="card">
           <div className="card-header">
             <div className="row">
               <div className="col-12">
-                <h2>Pet details  - Pet's appointment</h2>
+                <h2>Client details - Pet's appointment</h2>
               </div>
               <div>
               </div>
@@ -60,13 +60,13 @@ const AppointmentDetailsAdminPage = () => {
                   </tbody>
                 </table>
                 <div>
-                <center>
-                        <NavLink
-                            onClick={() => navigate(-1)}
-                            className="btn btn-info" >
-                            Go Back
-                        </NavLink>
-                        </center>
+                  <center>
+                    <NavLink
+                      onClick={() => navigate(-1)}
+                      className="btn btn-info" >
+                      Go Back
+                    </NavLink>
+                  </center>
                 </div>
               </div>
             </div>
