@@ -101,7 +101,7 @@ const AppointmentListPage = () => {
                                 )}
                             </tbody>
                         </table> 
-                        </div> } { <center><p><br /><b>Given pet has no appointments.</b></p></center>}
+                        </div> } {!appointmentList[0]?.id && <center><p><br /><b>Given pet has no appointments yet.</b></p></center>}
                         <center>
                         <NavLink
                             onClick={() => navigate(-1)}

@@ -18,7 +18,7 @@ const ProfilePage = () => {
     const dispatch = useDispatch();
 
     //mounted
-
+   
 
     useEffect(() => {
 
@@ -36,46 +36,46 @@ const ProfilePage = () => {
                 <div className="card">
                     <div className="card-header">
                         <div className="row">
-
+                            
                             <div className="col-12">
                                 <h2>My profile</h2>
+                                </div>
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                            <div className="card-body">
+                               {petList[0]?.id && <div> <table className="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Pet name </th>
+                                            <th scope="col">Pet age</th>
+                                            <th scope="col">Pet details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {petList.map((item, ind) =>
+                                            <tr key={item.id}>
+                                                <th scope="row">{ind + 1}</th>
+                                                <td>{item.name}</td>
+                                                <td>{item.age}</td>
+                                                <td>
+                                                <NavLink to={`/profile/pets/${item.id}`} className="btn btn-info">View details</NavLink>
+                                                </td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table> </div> } {!petList[0]?.id && <center><p>You have no pet's. Call our clinic to add your pets!</p></center>}
                             </div>
                         </div>
-                    </div>
-                    <div>
-                    </div>
-                    <div className="card-body">
-                        <table className="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Pet name </th>
-                                    <th scope="col">Pet age</th>
-                                    <th scope="col">Pet details</th>
-                                </tr>
-                            </thead>
-                            <tbody>
 
-                                {petList.map((item, ind) =>
-                                    <tr key={item.id}>
-                                        <th scope="row">{ind + 1}</th>
-                                        <td>{item.name}</td>
-                                        <td>{item.age}</td>
-                                        <td>
-                                            <NavLink to={`/profile/pets/${item.id}`} className="btn btn-info">View details</NavLink>
-                                        </td>
-                                    </tr>
-                                )}
-                            </tbody>
-                        </table>
+
                     </div>
                 </div>
-
-
-            </div>
-        </div>
-
-
+           
+        
     );
 };
 export { ProfilePage };

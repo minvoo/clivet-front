@@ -59,7 +59,7 @@ const PetPage = () => {
                         </div>
                         <div>
                             <div className="card-body">
-                                <table className="table table-striped">
+                            {petList[0]?.id && <div> <table className="table table-striped">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -83,7 +83,10 @@ const PetPage = () => {
                                             </tr>
                                         )}
                                     </tbody>
-                                </table>
+                                </table> 
+                                </div> } 
+                                { !petList[0]?.id &&
+                                <center><p><br /><b>Given owner has no pets yet.</b></p></center> }
                                 <div>
                                     <center>
                                         <NavLink
