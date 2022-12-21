@@ -15,6 +15,14 @@ class PetService {
         return axios.get(BASE_URL+'owners/'+ownerId+'/pets/'+petId, {headers: authHeader()});
     }
 
+    delete(ownerId, petId) {
+        return axios.delete(BASE_URL + 'owners/' +ownerId+'/pets/'+petId, {authHeader: authHeader()});
+    }
+
+    addPet(ownerId, pet){
+        return axios.post(BASE_URL + 'owners/' +ownerId, pet, {headers: authHeader()});
+    }
+
 
 
 }

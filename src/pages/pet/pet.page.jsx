@@ -6,7 +6,6 @@ import PetService from "../../services/pet.service";
 import './pet-page.css';
 
 
-
 const PetPage = () => {
 
     const [firstName, setFirstName] = useState('');
@@ -60,6 +59,7 @@ console.log('Id '+ id);
                                 <th scope="col">Pet name</th>
                                 <th scope="col">Pet age</th>
                                 <th scope="col">Pet details</th>
+                                <th scope="col">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -70,8 +70,11 @@ console.log('Id '+ id);
                                     <td>{item.name}</td>
                                     <td>{item.age}</td>
                                     <td>
-                                        <NavLink to={`/owners/${id}/pets/${item.id}`} className="btn btn-info">View details</NavLink>
+                                        <NavLink to={`/owners/${id}/pets/${item.id}`} className="btn btn-info">View Details</NavLink>
+                                        
                                     </td>
+
+                                    <td><button onClick={() =>PetService.delete(id, item.id)} className="btn btn-danger">Delete</button></td>
                                 </tr>
                             )}
                             </tbody>
