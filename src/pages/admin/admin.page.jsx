@@ -28,7 +28,7 @@ const AdminPage = () => {
                     <div className="card-header">
 
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-12">
                                 <h3>All owners</h3>
                             </div>
                         </div>

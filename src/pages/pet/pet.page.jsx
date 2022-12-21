@@ -13,17 +13,17 @@ const PetPage = () => {
     const [email, setEmail] = useState('');
     const [petList, setPetList] = useState([]);
 
-//pobieranie id z linka
+    //pobieranie id z linka
 
-const search = useLocation().search;
-const id=new URLSearchParams(search).get("ownerId");
-console.log('Id '+ id);
+    const search = useLocation().search;
+    const id = new URLSearchParams(search).get("ownerId");
+    console.log('Id ' + id);
 
     //mounted
 
     useEffect(() => {
-        
-        
+
+
         UserService.getOwnerById(id).then((response) => {
             setFirstName(response.data.firstName);
             setLastName(response.data.lastName);
@@ -31,7 +31,7 @@ console.log('Id '+ id);
 
 
             PetService.getPetsByOwnerId(id).then((response) =>
-            setPetList(response.data));
+                setPetList(response.data));
             console.log('pets ' + petList);
 
         });
@@ -39,54 +39,59 @@ console.log('Id '+ id);
 
     return (
         <div className="background-pet-admin">
-        <div className="p-3 custom-card-pet-admin">
+            <div className="p-3 custom-card-pet-admin">
 
-            <div className="card">
-                <div className="card-header">
+                <div className="card">
+                    <div className="card-header">
+                        <div className="row">
+                            <div className="col-6">
+                                <h3>Client details - {firstName} {lastName}</h3>
+                            </div>
+                        </div>
+                    </div>
                     <div className="row">
-                        <div className="col-6">
-                            <h3>Client details</h3>
+                        <div className="col-12 button-custom pt-3">
+                        <a href={`/owners/${id}/edit`} className="btn btn-success" role={"button"}>Edit person</a>
+                        <span className="px-2"></span>
+                        <a href={`/owners/${id}/pets/add`} className="btn btn-success px-3" role={"button"}>Add new pet</a>
                         </div>
                         <div>
-                            <p>{firstName} {lastName}</p>
-                            <p>{email}</p>
-                            </div>
-                            <div className="card-body">
+                    <div className="card-body">
                         <table className="table table-striped">
                             <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Pet name</th>
-                                <th scope="col">Pet age</th>
-                                <th scope="col">Pet details</th>
-                                <th scope="col">Actions</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Pet name</th>
+                                    <th scope="col">Pet age</th>
+                                    <th scope="col">Pet details</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
                             </thead>
                             <tbody>
 
-                            {petList.map((item, ind) =>
-                                <tr key={item.id}>
-                                    <th scope="row">{ind + 1}</th>
-                                    <td>{item.name}</td>
-                                    <td>{item.age}</td>
-                                    <td>
-                                        <NavLink to={`/owners/${id}/pets/${item.id}`} className="btn btn-info">View Details</NavLink>
-                                        
-                                    </td>
+                                {petList.map((item, ind) =>
+                                    <tr key={item.id}>
+                                        <th scope="row">{ind + 1}</th>
+                                        <td>{item.name}</td>
+                                        <td>{item.age}</td>
+                                        <td>
+                                            <NavLink to={`/owners/${id}/pets/${item.id}`} className="btn btn-info">View Details</NavLink>
 
-                                    <td><button onClick={() =>PetService.delete(id, item.id)} className="btn btn-danger">Delete</button></td>
-                                </tr>
-                            )}
+                                        </td>
+
+                                        <td><button onClick={() => PetService.delete(id, item.id)} className="btn btn-danger">Delete</button></td>
+                                    </tr>
+                                )}
                             </tbody>
                         </table>
                     </div>
-                    </div>
+                </div>
 
 
-                    </div>
-                    </div>
-                    </div>
-                    </div>
+            </div>
+        </div>
+                    </div >
+                    </div >
     );
 };
-export {PetPage};
+export { PetPage };

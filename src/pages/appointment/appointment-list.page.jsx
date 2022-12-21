@@ -14,17 +14,17 @@ const AppointmentListPage = () => {
 
 
 
- 
+
     // console.log('pet id ' + petId);
     // console.log('owner id '+ ownerId);
-const search = useLocation().pathname;
-const splited = search.split("/");
+    const search = useLocation().pathname;
+    const splited = search.split("/");
 
-//tu probowalem tamtym starym sposobem ale on zamiast dla ownera id=1 bierze chyba calosc czyli id=1?petsId=1 i dlatego nie działa
-const petId=splited[4];
-const ownerId = splited[2];
-console.log('Pet id '+ petId);
-console.log('Owner id ' + ownerId);
+    //tu probowalem tamtym starym sposobem ale on zamiast dla ownera id=1 bierze chyba calosc czyli id=1?petsId=1 i dlatego nie działa
+    const petId = splited[4];
+    const ownerId = splited[2];
+    console.log('Pet id ' + petId);
+    console.log('Owner id ' + ownerId);
 
     //mounted
 
@@ -34,65 +34,67 @@ console.log('Owner id ' + ownerId);
             setUser(response.data);
             console.log(user);
         });
-            PetService.getOnePetByIdAndOwnerId(ownerId, petId).then((response) => {
-                setPet(response.data);
-                console.log(pet);
-            });
+        PetService.getOnePetByIdAndOwnerId(ownerId, petId).then((response) => {
+            setPet(response.data);
+            console.log(pet);
+        });
 
-            AppointmentService.getAppointments(petId).then((response) => {
-                setAppointmentList(response.data);
-                console.log(appointmentList);
-            });
+        AppointmentService.getAppointments(petId).then((response) => {
+            setAppointmentList(response.data);
+            console.log(appointmentList);
+        });
 
     }, []);
 
-    return pet?(
-        <div className="background-appointment">
-        <div className="p-3 custom-card-appointment">
+    return pet ? (
+        <div className="background">
+            <div className="p-3 custom-card">
 
-            <div className="card">
-                <div className="card-header">
-                    <div className="row">
-                        <div className="col-6">
-                            <h3>Client details - Pet</h3>
-                        </div>
-                        <div>
-                            <p>{pet.name}</p>
-                            <p>{pet.age}</p>
-                            <p>{pet.weight}</p>
-                          {pet.owner&&  <p>{pet.owner.firstName} {pet.owner.lastName}</p>}  
+                <div className="card">
+                    <div className="card-header">
+                        <div className="row">
+                            <div className="col-6">
+                                <h3>Client details</h3>
+                            </div>
+                            </div>
+                            </div>
+                            <div>
+                                <p>{pet.name}</p>
+                                <p>{pet.age}</p>
+                                <p>{pet.weight}</p>
+                                {pet.owner && <p>{pet.owner.firstName} {pet.owner.lastName}</p>}
                             </div>
                             <div className="card-body">
-                        <table className="table table-striped">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Appointment Date</th>
-                                <th scope="col">Appointment cost</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                                <table className="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Appointment Date</th>
+                                            <th scope="col">Appointment cost</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                            {appointmentList.map((item, ind) =>
-                                <tr key={item.id}>
-                                    <th scope="row">{ind + 1}</th>
-                                    <td>{item.date}</td>
-                                    <td>{item.cost}</td>
-                                    <td>
-                                        <NavLink to={`/pets/${petId}/appointments/${item.id}`} className="btn btn-info">View details</NavLink>
-                                    </td>
-                                </tr>
-                            )}
-                            </tbody>
-                        </table>
-                    </div>
-                    </div>
+                                        {appointmentList.map((item, ind) =>
+                                            <tr key={item.id}>
+                                                <th scope="row">{ind + 1}</th>
+                                                <td>{item.date}</td>
+                                                <td>{item.cost}</td>
+                                                <td>
+                                                    <NavLink to={`/appointments?petId=${item.id}`} className="btn btn-info">View details</NavLink>
+                                                    <button onClick={() => AppointmentService.deleteAppointment(item.id)} className="btn btn-danger">Delete</button>
+                                                </td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
 
                     </div>
-                    </div>
-                    </div>
-                    </div>
-    ):<></>;
+                </div>
+            </div>
+    ) : <></>;
 };
-export {AppointmentListPage};
+export { AppointmentListPage };
