@@ -7,20 +7,24 @@ const BASE_URL = BASE_API_URL ;
 
 class PetService {
 
-    getPetsByOwnerId(id) {
-        return axios.get(BASE_URL+'owners/'+id+'/pets', {headers: authHeader()});
+    async getPetsByOwnerId(id) {
+        return await axios.get(BASE_URL+'owners/'+id+'/pets', {headers: authHeader()});
     }
 
-    getOnePetByIdAndOwnerId(ownerId,petId) {
-        return axios.get(BASE_URL+'owners/'+ownerId+'/pets/'+petId, {headers: authHeader()});
+   async getOnePetByIdAndOwnerId(ownerId,petId) {
+         return await axios.get(BASE_URL+'owners/'+ownerId+'/pets/'+petId, {headers: authHeader()});
     }
 
-    delete(ownerId, petId) {
-        return axios.delete(BASE_URL + 'owners/' +ownerId+'/pets/'+petId, {authHeader: authHeader()});
+    async delete(ownerId, petId) {
+        return await axios.delete(BASE_URL + 'owners/' +ownerId+'/pets/'+petId, {authHeader: authHeader()});
     }
 
-    addPet(ownerId, pet){
-        return axios.post(BASE_URL + 'owners/' +ownerId, pet, {headers: authHeader()});
+    async addPet(pet, ownerId){
+        return await axios.post(`${BASE_URL}owners/${ownerId}/pets`, pet, {headers: authHeader()});
+    }
+
+    async updatePet(ownerId, petId, pet) {
+        return await axios.patch(`${BASE_URL}owners/${ownerId}/pets/${petId}`, pet, {headers: authHeader()});
     }
 
 

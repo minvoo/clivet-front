@@ -11,9 +11,10 @@ const AddPetPage = () => {
     const [submitted, setSubbmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const search = useLocation().search;
-    const id=new URLSearchParams(search).get("ownerId");
-    console.log('Id '+ id);
+    const search = useLocation().pathname;
+    const splited = search.split("/");
+  
+    const id = splited[2];
 
     const navigate = useNavigate();
     const handleChange = (e) => {
@@ -38,8 +39,8 @@ const AddPetPage = () => {
             return;
         }
         setLoading(true);
-        PetService.addPet(id, pet).then(_ => {
-            navigate('/pets?ownerId=:ownerId');
+        PetService.addPet(pet,id).then(_ => {
+            navigate('/profile');
         }
         )
     };
@@ -97,9 +98,6 @@ const AddPetPage = () => {
                         <button className="btn btn-dark w-100 mt-3" disabled={loading} type="submit">Add pet</button>
                     </form>
 
-                    <Link to ="/pets?ownerId=:ownerId" className="card-subtitle pt-3" style={{color: '#2a2a2a', textDecoration: 'none'}}>
-                        <b>Take me to pet list.</b>
-                    </Link>
                 </div>
             </div>
         </>

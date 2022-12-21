@@ -47,10 +47,10 @@ const AppointmentListPage = () => {
     }, []);
 
     return pet ? (
-        <div className="background">
+        <div className="background-appointment">
             <div className="p-3 custom-card">
 
-                <div className="card">
+                <div className="custom-card-appointment">
                     <div className="card-header">
                         <div className="row">
                             <div className="col-6">

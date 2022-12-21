@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import{Link,useLocation,useNavigate} from "react-router-dom"
 import Appointment from "../../models/appointment"
-import'./appointment-page.css'
+import'./appointment-page.css';
 import AppointmentService from "../../services/appointment.service";
 
 
@@ -64,9 +64,9 @@ const handleAppointment = (e) => {
 
 return (
     <>
-        <div className="background">
+        <div className="background-appointment">
 
-                <div className="p-3 custom-card-appointment">
+                <div className="p-3 custom-card-appointment-details-admin">
                     <p className="card-title">Appointment</p>
                     <p className="card-subtitle">Add appointment</p>
 
