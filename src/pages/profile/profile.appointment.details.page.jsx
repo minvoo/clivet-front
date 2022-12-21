@@ -35,9 +35,10 @@ const ProfileAppointmentDetails = () => {
         <div className="card">
           <div className="card-header">
             <div className="row">
-              <div className="col-6">
-                <h3>My profile - Pet Appointment</h3>
-                <p></p>
+              <div className="col-12">
+                <h2>Pet's Appointment</h2>
+                </div>
+                </div>
               </div>
               <div></div>
               <div className="card-body">
@@ -70,8 +71,7 @@ const ProfileAppointmentDetails = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+    
   );
 };
 export { ProfileAppointmentDetails };

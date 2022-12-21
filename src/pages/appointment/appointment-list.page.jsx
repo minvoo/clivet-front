@@ -56,8 +56,8 @@ const AppointmentListPage = () => {
                 
                     <div className="card-header">
                         <div className="row">
-                            <div className="col-6">
-                                <h1>Pet details - {pet.name} </h1>
+                            <div className="col-12">
+                                <h2>Pet details - {pet.name} </h2>
                             </div>
                         </div>
                     </div>

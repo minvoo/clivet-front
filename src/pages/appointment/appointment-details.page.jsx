@@ -35,8 +35,8 @@ const AppointmentDetailsAdminPage = () => {
         <div className="card">
           <div className="card-header">
             <div className="row">
-              <div className="col-6">
-                <h3>Client details - Pet's appointment</h3>
+              <div className="col-12">
+                <h2>Client details - Pet's appointment</h2>
               </div>
               <div>
               </div>

@@ -11,6 +11,8 @@ const ProfilePetDetails = () => {
   const [pet, setPet] = useState(new Pet("", "", "", "", ""));
   const [appointmentList, setAppointmentList] = useState([]);
 
+  const navigate = useNavigate();
+
   const search = useLocation().pathname;
   const splited = search.split("/");
   const petId = splited[3];
@@ -35,47 +37,56 @@ const ProfilePetDetails = () => {
         <div className="card">
           <div className="card-header">
             <div className="row">
-              <div className="col-6">
-                <h3>My profile - Pet's appointments</h3>
-                <p>
-                  {pet.id} {pet.name} {pet.age} {pet.weight}
-                </p>
+              <div className="col-12">
+                <h2>Pet details - {pet.name}</h2>
               </div>
-              <div></div>
-              <div className="card-body">
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Appointment Date</th>
-                      <th scope="col">Appointment cost</th>
-                      <th scope="col">Appointment Details</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {appointmentList.map((item, ind) => (
-                      <tr key={item.id}>
-                        <th scope="row">{ind + 1}</th>
-                        <td>{item.date}</td>
-                        <td>{item.cost}</td>
-                        <td>
-                          <NavLink
-                            to={`/profile/appointments/${item.id}`}
-                            className="btn btn-info"
-                          >
-                            View details
-                          </NavLink>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+            </div>
+          </div>
+          <span ><p className="card-subtitle-pet pt-2"><b>Pet Age:</b> {pet.age}<br />
+            <b>Pet Weight:</b> {pet.weight}</p></span>
+          <div></div>
+          <div className="card-body">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Appointment Date</th>
+                  <th scope="col">Appointment cost</th>
+                  <th scope="col">Appointment Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                {appointmentList.map((item, ind) => (
+                  <tr key={item.id}>
+                    <th scope="row">{ind + 1}</th>
+                    <td>{item.date}</td>
+                    <td>{item.cost}</td>
+                    <td>
+                      <NavLink
+                        to={`/profile/appointments/${item.id}`}
+                        className="btn btn-info"
+                      >
+                        View details
+                      </NavLink>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div>
+              <center>
+                <NavLink
+                  onClick={() => navigate(-1)}
+                  className="btn btn-info" >
+                  Go Back
+                </NavLink>
+              </center>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   );
 };
 export { ProfilePetDetails };

@@ -36,8 +36,11 @@ const ProfilePage = () => {
                 <div className="card">
                     <div className="card-header">
                         <div className="row">
-                            <div className="col-6">
-                                <h3>My profile</h3>
+                            
+                            <div className="col-12">
+                                <h2>My profile</h2>
+                                </div>
+                                </div>
                             </div>
                             <div>
                             </div>
@@ -46,7 +49,7 @@ const ProfilePage = () => {
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">{currentUser?.firstName} TU DZIAŁA!gt</th>
+                                            <th scope="col">Pet name </th>
                                             <th scope="col">Pet age</th>
                                             <th scope="col">Pet details</th>
                                         </tr>
@@ -71,8 +74,8 @@ const ProfilePage = () => {
 
                     </div>
                 </div>
-            </div>
-        </div>
+           
+        
     );
 };
 export { ProfilePage };
