@@ -74,7 +74,7 @@ const AppointmentListPage = () => {
                         {/* {pet.owner && <p>{pet.owner.firstName} {pet.owner.lastName}</p>} */}
                     </div>
                     <div className="card-body">
-                        <table className="table table-striped">
+                    {appointmentList[0]?.id && <div> <table className="table table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -100,7 +100,8 @@ const AppointmentListPage = () => {
                                     </tr>
                                 )}
                             </tbody>
-                        </table>
+                        </table> 
+                        </div> } { <center><p><br /><b>Given pet has no appointments.</b></p></center>}
                         <center>
                         <NavLink
                             onClick={() => navigate(-1)}
