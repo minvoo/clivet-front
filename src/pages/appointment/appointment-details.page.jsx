@@ -1,8 +1,7 @@
 import { useState, useNavigate, useEffect, useParams } from "react";
-import UserService from "../../services/user.service";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import PetService from "../../services/pet.service";
+
 import AppointmentService from "../../services/appointment.service";
 import './appointment-page.css';
 

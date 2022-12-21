@@ -94,7 +94,6 @@ const AppointmentListPage = () => {
 
                     </div>
                 </div>
-            </div>
     ) : <></>;
 };
 export { AppointmentListPage };
