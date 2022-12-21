@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import AuthenticationService from "../../services/authentication.service";
 import {setCurrentUser} from "../../store/actions/user";
 import '../register/register-page.css';
+import { setFailMessage } from "../../store/actions/toast";
 const LoginPage = () => {
 
     const [user, setUser] = useState(new User('', ''));
@@ -52,6 +53,7 @@ const LoginPage = () => {
         AuthenticationService.login(user).then(response => {
             //set user in session
             dispatch(setCurrentUser(response.data));
+            dispatch(setFailMessage(`That didn't work`));
             navigate("/profile")
         }).catch(error => {
             console.log(error)

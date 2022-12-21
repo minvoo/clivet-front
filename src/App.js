@@ -20,6 +20,7 @@ import { ProfileAppointmentDetails } from "./pages/profile/profile.appointment.d
 import { AppointmentDetailsAdminPage } from "./pages/appointment/appointment-details.page";
 import { AddPetPage } from "./pages/pet/add.pet.page";
 import { UpdatePetPage } from "./pages/pet/update.pet.page";
+import { ToastDisplayer } from "./components/toast.displayer";
 
 function App() {
   return (
