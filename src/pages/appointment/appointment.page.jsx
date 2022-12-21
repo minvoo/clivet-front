@@ -16,7 +16,7 @@ const AppointmentPage = () => {
     const search = useLocation().pathname;
     const splited = search.split("/");
 
-    const petId = splited[4];
+    const petId = splited[2];
     const ownerId = splited[2];
 
     const navigate = useNavigate();
@@ -44,10 +44,11 @@ const AppointmentPage = () => {
             return;
         }
         setLoading(true);
-        AppointmentService.addAppointment(appointment,petId).then(_ => {
-            navigate(`/owners/${ownerId}/pets/${petId}`);
-        }
-        )
+        console.log('zaraz doddam appointmenta dla peta o id '+petId);
+        AppointmentService.addAppointmentByPetId(appointment,petId).then((response) => {
+            navigate("/owners");
+        })
+        
     };
 
     return (

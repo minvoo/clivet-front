@@ -95,7 +95,7 @@ const AppointmentListPage = () => {
                                             <NavLink to={`/pets/${petId}/appointments/${item.id}`} className="btn btn-info">View details</NavLink>
                                         </td>
                                         <td>
-                                        <button onClick={() => AppointmentService.deleteAppointment(item.id)} className="btn btn-danger">Delete</button>
+                                        <button onClick={() => AppointmentService.delete(item.id)} className="btn btn-danger">Delete</button>
                                         </td>
                                     </tr>
                                 )}
