@@ -46,7 +46,7 @@ const ProfilePetDetails = () => {
             <b>Pet Weight:</b> {pet.weight}</p></span>
           <div></div>
           <div className="card-body">
-            <table className="table table-striped">
+          {appointmentList[0]?.id && <div> <table className="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -72,7 +72,7 @@ const ProfilePetDetails = () => {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table> </div> } {!appointmentList[0]?.id && <center><p><br /><b>Given pet has no appointments yet.</b></p></center>}
             <div>
               <center>
                 <NavLink

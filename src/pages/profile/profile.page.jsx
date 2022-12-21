@@ -45,7 +45,7 @@ const ProfilePage = () => {
                             <div>
                             </div>
                             <div className="card-body">
-                                <table className="table table-striped">
+                               {petList[0]?.id && <div> <table className="table table-striped">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -67,7 +67,7 @@ const ProfilePage = () => {
                                             </tr>
                                         )}
                                     </tbody>
-                                </table>
+                                </table> </div> } {!petList[0]?.id && <center><p>You have no pet's. Call our clinic to add your pets!</p></center>}
                             </div>
                         </div>
 
