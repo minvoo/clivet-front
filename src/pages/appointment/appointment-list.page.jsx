@@ -1,9 +1,10 @@
-import { useState, useNavigate, useEffect, useParams } from "react";
+import { useState, useEffect, useParams } from "react";
 import UserService from "../../services/user.service";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import PetService from "../../services/pet.service";
 import AppointmentService from "../../services/appointment.service";
+import "./appointment-page.css";
 
 
 const AppointmentListPage = () => {
@@ -46,54 +47,73 @@ const AppointmentListPage = () => {
 
     }, []);
 
+    const navigate = useNavigate();
+
     return pet ? (
         <div className="background-appointment">
-            <div className="p-3 custom-card">
-
-                <div className="custom-card-appointment">
+            <div className="p-3 custom-card-pet-admin">
+            <div className="card">
+                
                     <div className="card-header">
                         <div className="row">
                             <div className="col-6">
-                                <h3>Client details</h3>
-                            </div>
-                            </div>
-                            </div>
-                            <div>
-                                <p>{pet.name}</p>
-                                <p>{pet.age}</p>
-                                <p>{pet.weight}</p>
-                                {pet.owner && <p>{pet.owner.firstName} {pet.owner.lastName}</p>}
-                            </div>
-                            <div className="card-body">
-                                <table className="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Appointment Date</th>
-                                            <th scope="col">Appointment cost</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        {appointmentList.map((item, ind) =>
-                                            <tr key={item.id}>
-                                                <th scope="row">{ind + 1}</th>
-                                                <td>{item.date}</td>
-                                                <td>{item.cost}</td>
-                                                <td>
-                                                    <NavLink to={`/appointments?petId=${item.id}`} className="btn btn-info">View details</NavLink>
-                                                    <button onClick={() => AppointmentService.deleteAppointment(item.id)} className="btn btn-danger">Delete</button>
-                                                </td>
-                                            </tr>
-                                        )}
-                                    </tbody>
-                                </table>
+                                <h1>Pet details - {pet.name} </h1>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                       
+                        <span ><p className="card-subtitle-pet pt-2"><b>Pet Age:</b> {pet.age}<br/>
+                        <b>Pet Weight:</b> {pet.weight}</p></span>
+                        <div className="col-12 button-custom pt-3">
+                        <a href={`/owners/${ownerId}/pets/${petId}/update`} className="btn btn-success" role={"button"}>Edit Pet</a>
+                        <span className="px-2"></span>
+                        <a href={`/pets/${petId}/appointments/add`} className="btn btn-success" role={"button"}>Add Appointment</a>
+                        
+                        </div>
+                        {/* {pet.owner && <p>{pet.owner.firstName} {pet.owner.lastName}</p>} */}
+                    </div>
+                    <div className="card-body">
+                        <table className="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Appointment Date</th>
+                                    <th scope="col">Appointment cost</th>
+                                    <th scope="col">Appointment Details</th>
+                                    <th scope="col">Delete Appointment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-
+                                {appointmentList.map((item, ind) =>
+                                    <tr key={item.id}>
+                                        <th scope="row">{ind + 1}</th>
+                                        <td>{item.date}</td>
+                                        <td>{item.cost}</td>
+                                        <td>
+                                            <NavLink to={`/pets/${petId}/appointments/${item.id}`} className="btn btn-info">View details</NavLink>
+                                        </td>
+                                        <td>
+                                        <button onClick={() => AppointmentService.deleteAppointment(item.id)} className="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                        <center>
+                        <NavLink
+                            onClick={() => navigate(-1)}
+                            className="btn btn-info" >
+                            Go Back
+                        </NavLink>
+                        </center>
                     </div>
                 </div>
+
+
+            </div>
+        </div>
     ) : <></>;
 };
 export { AppointmentListPage };

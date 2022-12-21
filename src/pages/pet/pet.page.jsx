@@ -1,6 +1,6 @@
-import { useState, useNavigate, useEffect, useParams } from "react";
+import { useState, useEffect, useParams } from "react";
 import UserService from "../../services/user.service";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import PetService from "../../services/pet.service";
 import './pet-page.css';
@@ -20,6 +20,8 @@ const PetPage = () => {
     console.log('Id ' + id);
 
     //mounted
+
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -44,54 +46,63 @@ const PetPage = () => {
                 <div className="card">
                     <div className="card-header">
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-12">
                                 <h3>Client details - {firstName} {lastName}</h3>
                             </div>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-12 button-custom pt-3">
-                        <a href={`/owners/${id}/edit`} className="btn btn-success" role={"button"}>Edit person</a>
-                        <span className="px-2"></span>
-                        <a href={`/owners/${id}/pets/add`} className="btn btn-success px-3" role={"button"}>Add new pet</a>
+                            <a href={`/owners/${id}/edit`} className="btn btn-success" role={"button"}>Edit person</a>
+                            <span className="px-2"></span>
+                            <a href={`/owners/${id}/pets/add`} className="btn btn-success " role={"button"}>Add new pet</a>
                         </div>
                         <div>
-                    <div className="card-body">
-                        <table className="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Pet name</th>
-                                    <th scope="col">Pet age</th>
-                                    <th scope="col">Pet details</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                            <div className="card-body">
+                                <table className="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Pet name</th>
+                                            <th scope="col">Pet age</th>
+                                            <th scope="col">Pet details</th>
+                                            <th scope="col">Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                {petList.map((item, ind) =>
-                                    <tr key={item.id}>
-                                        <th scope="row">{ind + 1}</th>
-                                        <td>{item.name}</td>
-                                        <td>{item.age}</td>
-                                        <td>
-                                            <NavLink to={`/owners/${id}/pets/${item.id}`} className="btn btn-info">View Details</NavLink>
+                                        {petList.map((item, ind) =>
+                                            <tr key={item.id}>
+                                                <th scope="row">{ind + 1}</th>
+                                                <td>{item.name}</td>
+                                                <td>{item.age}</td>
+                                                <td>
+                                                    <NavLink to={`/owners/${id}/pets/${item.id}`} className="btn btn-info">View Details</NavLink>
+                                                </td>
+                                                <td><button onClick={() => PetService.delete(id, item.id)} className="btn btn-danger">Delete</button></td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <center>
+                                        <NavLink
+                                            to={"/owners"}
+                                            className="btn btn-info" 
+                                            >
+                                                
+                                            Go Back
+                                        </NavLink>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
 
-                                        </td>
 
-                                        <td><button onClick={() => PetService.delete(id, item.id)} className="btn btn-danger">Delete</button></td>
-                                    </tr>
-                                )}
-                            </tbody>
-                        </table>
                     </div>
                 </div>
-
-
-            </div>
-        </div>
-                    </div >
-                    </div >
+            </div >
+        </div >
     );
 };
 export { PetPage };

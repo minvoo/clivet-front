@@ -1,7 +1,7 @@
 import Pet from "../../models/pet";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { NavLink , useLocation, useNavigate } from "react-router-dom";
 import PetService from "../../services/pet.service";
 import "./pet-page.css";
 const UpdatePetPage = () => {
@@ -12,7 +12,7 @@ const UpdatePetPage = () => {
 
   const search = useLocation().pathname;
   const splited = search.split("/");
-  
+
 
   // /owners/:ownerId/pets/:petId/update
   const ownerId = splited[2];
@@ -46,9 +46,9 @@ const UpdatePetPage = () => {
       return;
     }
     setLoading(true);
-//update 
-    PetService.updatePet(ownerId,petId,pet).then((response) => {
-        navigate('/profile');
+    //update 
+    PetService.updatePet(ownerId, petId, pet).then((response) => {
+      navigate(`/owners/${ownerId}/pets/${petId}`);
     })
   };
 
@@ -56,8 +56,7 @@ const UpdatePetPage = () => {
     <>
       <div className="background-pet-admin">
         <div className="p-3 custom-card-pet-admin">
-          <p className="card-title">Add Pet</p>
-          <p className="card-subtitle">All fields are required</p>
+          <p className="card-title">Update Pet</p>
 
           {errorMessage && (
             <div className="alert alert-danger">{errorMessage}</div>
@@ -117,9 +116,18 @@ const UpdatePetPage = () => {
               disabled={loading}
               type="submit"
             >
-              Add pet
+              Update Pet
             </button>
           </form>
+          <div>
+            <center>
+              <NavLink
+                onClick={() => navigate(-1)}
+                className="btn btn-info w-100 mt-3" >
+                Go Back
+              </NavLink>
+            </center>
+          </div>
         </div>
       </div>
     </>

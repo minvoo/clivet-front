@@ -62,8 +62,7 @@ const ProfileAppointmentDetails = () => {
                 <center>
                   <NavLink
                     onClick={() => navigate(-1)}
-                    className="btn btn-info"
-                  >
+                    className="btn btn-info" >
                     Go Back
                   </NavLink>
                 </center>

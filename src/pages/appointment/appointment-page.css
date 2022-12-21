@@ -22,6 +22,7 @@
 
 }
 
+
 .blank{
     padding-top: 10vh;
 }
@@ -35,9 +36,21 @@
 
 .card-subtitle {
     font-weight: normal;
-    font-size: 0.8em;
-    text-align: center;
-    color: gray;
+    font-size: 0.9em;
+    text-align: left;
+    color: rgb(61, 57, 57);
+    margin-left: 3%;
+    padding-top: 15px;
+}
+.card-subtitle-pet {
+    font-weight: normal;
+    font-size: 0.9em;
+    text-align: left;
+    color: rgb(61, 57, 57);
+    margin-left: 3%;
+    padding-top: 0%;
+    
+  
 }
 
 .form-input-custom {

@@ -51,6 +51,7 @@ function App() {
             path="/profile/appointments/:appointmentId"
             element={<ProfileAppointmentDetails />}
           />
+          <Route path="/pets/:petId/appointments/add" element={<AppointmentPage/>}/>
            <Route path="/owners/:ownerId/pets/:petId/update" element={<UpdatePetPage />} />
           <Route path="/owners/:ownerId/pets/add" element={<AddPetPage />} />
           <Route path="/pets" element={<PetPage />} />

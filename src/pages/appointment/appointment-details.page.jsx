@@ -1,5 +1,5 @@
-import { useState, useNavigate, useEffect, useParams } from "react";
-import { useLocation } from "react-router-dom";
+import { useState, useEffect, useParams } from "react";
+import { useLocation ,useNavigate} from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 import AppointmentService from "../../services/appointment.service";
@@ -16,6 +16,8 @@ const AppointmentDetailsAdminPage = () => {
   console.log("Pet id " + petId);
   console.log("Appointment id " + appointmenId);
 
+  const navigate = useNavigate();
+
   //mounted
 
   useEffect(() => {
@@ -27,7 +29,7 @@ const AppointmentDetailsAdminPage = () => {
     );
   }, []);
 
-  return appointment? (
+  return appointment?  (
     <div className="background-appointment-details-admin">
       <div className="p-3 custom-card-appointment-details-admin">
         <div className="card">
@@ -57,6 +59,15 @@ const AppointmentDetailsAdminPage = () => {
                     </tr>
                   </tbody>
                 </table>
+                <div>
+                <center>
+                        <NavLink
+                            onClick={() => navigate(-1)}
+                            className="btn btn-info" >
+                            Go Back
+                        </NavLink>
+                        </center>
+                </div>
               </div>
             </div>
           </div>

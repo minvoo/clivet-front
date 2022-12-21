@@ -1,74 +1,62 @@
 
 import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import{Link,useLocation,useNavigate} from "react-router-dom"
+import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import Appointment from "../../models/appointment"
-import'./appointment-page.css';
+import './appointment-page.css';
 import AppointmentService from "../../services/appointment.service";
 
+const AppointmentPage = () => {
 
-
-
-const AppointmentPage = () =>{
-
-    const[appointment,setAppointment] = useState(new Appointment('','','','',''))
+    const [appointment, setAppointment] = useState(new Appointment('', '', '', '', ''))
     const [loading, setLoading] = useState(false);
     const [submitted, setSubbmitted] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
 
-   const stateappointment = useSelector(state =>state.appointment);
+    const search = useLocation().pathname;
+    const splited = search.split("/");
+
+    const petId = splited[4];
+    const ownerId = splited[2];
+
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setAppointment((prevState => {
+            return {
+
+                ...prevState,
+                [name]: value
+            };
+        }));
+    };
 
 
-  const navigate = useNavigate();
 
+    const handleAppointment = (e) => {
 
-  useEffect(() => {
-    if (appointment?.id) {
-        navigate('/profile')
-    }
-}, []);
-const handleChange = (e) => {
-    const {name, value} = e.target;
+        e.preventDefault();
 
-    setAppointment((prevState => {
-        return {
+        setSubbmitted(true);
+        if (!appointment.date || !appointment.description || !appointment.medicine || !appointment.cost ) {
+            return;
+        }
+        setLoading(true);
+        AppointmentService.addAppointment(appointment,petId).then(_ => {
+            navigate(`/owners/${ownerId}/pets/${petId}`);
+        }
+        )
+    };
 
-            ...prevState,
-            [name]: value
-        };
-    }));
-};
-
-const search = useLocation().search;
-const petId=new URLSearchParams(search).get("petId");
-
-const handleAppointment = (e) => {
-
-    e.preventDefault();
-
-    setSubbmitted(true);
-    // if form is invalid -> return
-    if (!appointment.date || !appointment.description || !appointment.medicine || !appointment.cost || !appointment.pet) {
-        return;
-    }
-    setLoading(true);
-    AppointmentService.addAppointment(appointment, petId).then(_ => {
-        navigate('/owners');
-    }).catch(error => {
-            setErrorMessage('Unexpected error occurred.');
-
-        setLoading(false);
-    })
-};
-
-return (
-    <>
-        <div className="background-appointment">
+    return (
+        <>
+            <div className="background-appointment">
 
                 <div className="p-3 custom-card-appointment-details-admin">
-                    <p className="card-title">Appointment</p>
-                    <p className="card-subtitle">Add appointment</p>
+                    <p className="card-title">Add appointment</p>
+                    <p className="card-subtitle">All fields are required</p>
 
                     {errorMessage &&
                         <div className="alert alert-danger">
@@ -76,57 +64,64 @@ return (
                         </div>
                     }
                     <form onSubmit={(e) => handleAppointment(e)}
-                          noValidate
-                          className={submitted ? 'was-validated' : ''}>
+                        noValidate
+                        className={submitted ? 'was-validated' : ''}>
 
                         <div className="form-group">
                             <label htmlFor="date">Date:</label>
                             <input type="date" name="date"
-                                   className="form-control form-input-custom form-input-custom"
-                                   placeholder="Date"
-                                   value={appointment.date}
-                                   onChange={(e) => handleChange(e)}
-                                   required/>
+                                className="form-control form-input-custom form-input-custom"
+                                placeholder="Date"
+                                value={appointment.date}
+                                onChange={(e) => handleChange(e)}
+                                required />
                             <div className="invalid-feedback">Date is required</div>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="description">Description:</label>
                             <input type="text" name="description" className="form-control form-input-custom"
-                                   placeholder="Description"
-                                   value={appointment.description}
-                                   onChange={(e) => handleChange(e)}
-                                   required/>
+                                placeholder="Description"
+                                value={appointment.description}
+                                onChange={(e) => handleChange(e)}
+                                required />
                             <div className="invalid-feedback">Description is required</div>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="medicine">Medicine:</label>
                             <input type="text" name="medicine" className="form-control form-input-custom"
-                                   placeholder="Medicine"
-                                   value={appointment.medicine}
-                                   onChange={(e) => handleChange(e)}
-                                   required/>
+                                placeholder="Medicine"
+                                value={appointment.medicine}
+                                onChange={(e) => handleChange(e)}
+                                required />
                             <div className="invalid-feedback">Medicine is required</div>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="ticketNum">Cost Visit :</label>
-                            <input type="number" placeholder="Cost" step="20" name="cost" className="form-control form-input-custom"
-                                   value={appointment.cost}
-                                   onChange={(e) => handleChange(e)}
-                                   required/>
+                            <label htmlFor="cost">Cost Visit :</label>
+                            <input type="number" placeholder="Cost" min="0" step="20" name="cost" className="form-control form-input-custom"
+                                value={appointment.cost}
+                                onChange={(e) => handleChange(e)}
+                                required />
                             <div className="invalid-feedback">Cost is required</div>
                         </div>
 
-                        <button className="btn btn-success w-100 mt-3" disabled={loading} type="submit">New Appointment</button>
+                        <button className="btn btn-dark w-100 mt-3" disabled={loading} type="submit">Add Appointment</button>
                     </form>
+                    <center>
+                        <NavLink
+                            onClick={() => navigate(-1)}
+                            className="btn btn-info w-100 mt-3" >
+                            Go Back
+                        </NavLink>
+                    </center>
                 </div>
             </div>
-    </>
-)
+        </>
+    )
 
 
 };
 
-export {AppointmentPage};
+export { AppointmentPage };
