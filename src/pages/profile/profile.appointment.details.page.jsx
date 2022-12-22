@@ -42,7 +42,7 @@ const ProfileAppointmentDetails = () => {
               </div>
               <div></div>
               <div className="card-body">
-                <table className="table table-striped">
+                <table className="table table-striped custom-table-admin">
                   <thead>
                     <tr>
                       <th scope="col">Date</th>

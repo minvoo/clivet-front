@@ -34,13 +34,13 @@ const AdminPage = () => {
                         </div>
                     </div>
                     <div className="card-body">
-                        <table className="table table-striped">
+                        <table className="table table-striped custom-table-admin">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">First name</th>
                                 <th scope="col">Last name</th>
-                                <th scope="col">Pets</th>
+                                <th scope="col">Pets <a href="google.com">asd</a></th>
                             </tr>
                             </thead>
                             <tbody>

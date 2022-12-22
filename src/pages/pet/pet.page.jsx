@@ -59,7 +59,7 @@ const PetPage = () => {
                         </div>
                         <div>
                             <div className="card-body">
-                            {petList[0]?.id && <div> <table className="table table-striped">
+                            {petList[0]?.id && <div> <table className="table table-striped custom-card-pet">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -77,9 +77,9 @@ const PetPage = () => {
                                                 <td>{item.name}</td>
                                                 <td>{item.age}</td>
                                                 <td>
-                                                    <NavLink to={`/owners/${id}/pets/${item.id}`} className="btn btn-info">View Details</NavLink>
+                                                    <a href={`/owners/${id}/pets/${item.id}`} className="btn btn-info">View Details</a>
                                                 </td>
-                                                <td><button onClick={() => PetService.delete(id, item.id)} className="btn btn-danger">Delete</button></td>
+                                                <td><button onClick={() => PetService.delete(id, item.id).then(navigate('/owners'))} className="btn btn-danger">Delete</button></td>
                                             </tr>
                                         )}
                                     </tbody>

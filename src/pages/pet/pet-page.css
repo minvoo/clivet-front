@@ -13,6 +13,7 @@
 
 }
 
+
 .custom-card-pet-admin {
     width: 650px;
     max-width: 100%;
@@ -30,3 +31,18 @@
     margin-left: 55%;
     
 }
+
+.custom-card-pet a {
+
+    color: white;
+    
+    }
+    
+    .custom-card-pet a:hover {
+        color:black;
+        transition-duration: 1s;
+    }
+    
+    .custom-card-pet a:visited {
+        color:white;
+    }

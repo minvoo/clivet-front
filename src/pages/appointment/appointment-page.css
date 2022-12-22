@@ -88,8 +88,19 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
-
-
-
 }
+
+.custom-appointment a {
+
+    color: white;
+    
+}
+    
+    .custom-appointment a:hover {
+        color:black;
+        transition-duration: 1s;
+    }
+    
+    .custom-card-appointment a:visited {
+        color:white;
+    }

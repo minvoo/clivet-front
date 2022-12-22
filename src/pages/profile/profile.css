@@ -82,3 +82,18 @@
     left:55%;
 
 }
+
+.custom-profile a {
+
+    color: white;
+    
+    }
+    
+    .custom-profile a:hover {
+        color:black;
+        transition-duration: 1s;
+    }
+    
+    .custom-profile a:visited {
+        color:white;
+    }

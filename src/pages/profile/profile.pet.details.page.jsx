@@ -46,7 +46,7 @@ const ProfilePetDetails = () => {
             <b>Pet Weight:</b> {pet.weight}</p></span>
           <div></div>
           <div className="card-body">
-          {appointmentList[0]?.id && <div> <table className="table table-striped">
+          {appointmentList[0]?.id && <div> <table className="table table-striped custom-profile">
               <thead>
                 <tr>
                   <th scope="col">#</th>

@@ -10,7 +10,20 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+.custom-card-admin a {
 
+color: white;
+
+}
+
+.custom-card-admin a:hover {
+    color:black;
+    transition-duration: 1s;
+}
+
+.custom-card-admin a:visited {
+    color:white;
 }
 
 .custom-card-admin {

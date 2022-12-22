@@ -45,7 +45,7 @@ const ProfilePage = () => {
                             <div>
                             </div>
                             <div className="card-body">
-                               {petList[0]?.id && <div> <table className="table table-striped">
+                               {petList[0]?.id && <div> <table className="table table-striped custom-profile">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
