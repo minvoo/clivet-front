@@ -32,11 +32,12 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/owners/:ownerId/edit" element={<UpdateProfilPage/>}/>
-          <Route path="/home" element={<HomePage />} />
+                    <Route path="/home" element={<HomePage />} />
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="/401" element={<UnauthorizedPage />} />
-          <Route path="/profile/pets/:petId" element={<ProfilePetDetails />} />
+          
+          
+          
           <Route
             path="/owners"
             element={
@@ -45,25 +46,29 @@ function App() {
               </AuthGuard>
             }
           />
+          <Route path="/owners/:ownerId/edit" element={<AuthGuard roles={[Role.ADMIN]}><UpdateProfilPage/></AuthGuard>}/>
           <Route
             path="/pets/:petId/appointments/:appointmentId"
-            element={<AppointmentDetailsAdminPage />}
+            element={<AuthGuard roles={[Role.ADMIN]}><AppointmentDetailsAdminPage /> </AuthGuard>}
+          />
+          
+          <Route
+            path="/pets/:petId/appointments/add"
+            element={<AuthGuard roles={[Role.ADMIN]}><AppointmentPage /></AuthGuard>}
           />
           <Route
-            path="/profile/appointments/:appointmentId"
-            element={<ProfileAppointmentDetails />}
+            path="/owners/:ownerId/pets/:petId/update"
+            element={<AuthGuard roles={[Role.ADMIN]}><UpdatePetPage /></AuthGuard>}
           />
-          <Route path="/pets/:petId/appointments/add" element={<AppointmentPage/>}/>
-           <Route path="/owners/:ownerId/pets/:petId/update" element={<UpdatePetPage />} />
-          <Route path="/owners/:ownerId/pets/add" element={<AddPetPage />} />
-          <Route path="/pets" element={<PetPage />} />
-          <Route path="/pets?ownerId=:ownerId" element={<PetPage />} />
+          <Route path="/owners/:ownerId/pets/add" element={<AuthGuard roles={[Role.ADMIN]}><AddPetPage /></AuthGuard>} />
+          <Route path="/pets" element={<AuthGuard roles={[Role.ADMIN]}><PetPage /></AuthGuard>} />
+          <Route path="/pets?ownerId=:ownerId" element={<AuthGuard roles={[Role.ADMIN]}><PetPage /></AuthGuard>} />
           <Route
             path="/owners/:ownerId/pets/:petId"
-            element={<AppointmentListPage />}
+            element={<AuthGuard roles={[Role.ADMIN]}><AppointmentListPage /></AuthGuard>}
             exact
           />
-          <Route path="/appointments?petId=:petId" element={<PetPage />} />
+          <Route path="/appointments?petId=:petId" element={<AuthGuard roles={[Role.ADMIN]}><PetPage /></AuthGuard>} />
           <Route
             path="/appointment?petId=:petId"
             element={
@@ -71,6 +76,13 @@ function App() {
                 <AppointmentPage />
               </AuthGuard>
             }
+          />
+          
+          
+          <Route path="/profile/pets/:petId" element={<AuthGuard roles={[Role.USER, Role.ADMIN]}><ProfilePetDetails /></AuthGuard>} />
+          <Route
+            path="/profile/appointments/:appointmentId"
+            element={<AuthGuard roles={[Role.USER, Role.ADMIN]}><ProfileAppointmentDetails /></AuthGuard>}
           />
           <Route
             path="/profile"
