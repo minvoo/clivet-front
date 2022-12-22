@@ -120,7 +120,7 @@ const RegisterPage = () => {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="lastName">First name:</label>
+                                <label htmlFor="lastName">Last name:</label>
                                 <input type="text" name="lastName" className="form-control form-input-custom"
                                        placeholder="Last name"
                                        value={user.lastName}
