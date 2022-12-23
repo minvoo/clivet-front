@@ -1,70 +1,217 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a name="readme-top"></a>
 
-## Available Scripts
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+<img src="https://github.com/minvoo/clivet/blob/master/src/main/java/com/teamone/clivet/readme_files/demo-clivet-1.png" />
+  <a href="https://github.com/minvoo/clivet">
+  </a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h3 align="center">CLIVET</h3>
+ <center>  ·
+    <a href="https://github.com/minvoo/iteis/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/minvoo/ITEIS/issues/new">Request Feature</a>
+</center>
+</div>
 
-### `npm test`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#rest-api">REST API</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- ABOUT THE PROJECT -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## About The Project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A veterinarian clinic application is a software tool that allows veterinarians and other medical professionals to manage and track the healthcare of pets. The application typically includes features for adding and storing information about pets, scheduling and recording visits, and managing user accounts. The application is written in Java and React JS. SpringBoot and Hibernate were used to create the application.
 
-### `npm run eject`
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Built With
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [![Spring][SpringBoot]][Spring-url]
+* [![Hibernate][HibernateSite]][Hibernate-url]
+* [![Java][JavaSite]][Java-url]
+* [![HTML][HTMLSite]][HTML-url]
+* [![CSS][CSSSite]][CSS-url]
+* [![React][ReactSite]][React-url]
+* [![MySQL][MysqlSite]][Mysql-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+<!-- GETTING STARTED -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Getting Started
 
-### Code Splitting
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To run app locally:
 
-### Analyzing the Bundle Size
+* Database setup
+  ```
+  Set your default db user and db password in application.properties or environment variables.
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Default server port
+    ```
+  server.port = 8080
+  ```
 
-### Making a Progressive Web App
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Clone the repo
+   ```sh
+   git clone https://github.com/minvoo/clivet.git (Backend)
+   git clone https://github.com/minvoo/clivet-front.git (Frontend)
+   ```
 
-### Advanced Configuration
+2. Run backend server on port 8080. Navigate to frontend folder and start the server. Install missing dependencies.
+```
+npm start
+npm i [missing-dependency-name]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<!-- USAGE EXAMPLES -->
+<img src="https://github.com/minvoo/clivet/blob/master/src/main/java/com/teamone/clivet/readme_files/demo-clivet-2.png"> </img>
+<br/>
+## Usage
 
-### Deployment
+Users can:
+* Login or register
+* Check own profile info
+* Check own pets info
+* Check all appointments of specific pet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Administrator can:
+* Edit user data
+* Add pets
+* Add appointments
+* Edit pet data
+* Delete pets
+* Delete appointments
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### `npm run build` fails to minify
+<!-- CONTRIBUTING -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## REST-API
+
+You can check all API endpoint in controller classes.
+
+## Contributing
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also
+simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## Contact
+
+Mariusz Maciejewski -  <a href="mailto:maciejewski_mariusz@wp.pl">maciejewski_mariusz@wp.pl
+
+Project Link: [https://github.com/minvoo/clivet](https://github.com/minvoo/clivet)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<div align="center">
+<img src="https://github.com/minvoo/clivet/blob/master/src/main/java/com/teamone/clivet/readme_files/demo-clivet-3.png" />
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/minvoo/iteis.svg?style=for-the-badge
+
+[contributors-url]: https://github.com/minvoo/iteis/graphs/contributors
+
+[forks-shield]: https://img.shields.io/github/forks/minvoo/iteis.svg?style=for-the-badge
+
+[forks-url]: https://github.com/minvoo/iteis/network/members
+
+[stars-shield]: https://img.shields.io/github/stars/minvoo/iteis.svg?style=for-the-badge
+
+[stars-url]: https://github.com/minvoo/iteis/stargazers
+
+[issues-shield]: https://img.shields.io/github/issues/minvoo/iteis.svg?style=for-the-badge
+
+[issues-url]: https://github.com/minvoo/iteis/issues
+
+[license-shield]: https://img.shields.io/github/license/minvoo/iteis.svg?style=for-the-badge
+
+[license-url]: https://github.com/minvoo/iteis/blob/master/LICENSE.txt
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+
+[linkedin-url]: https://linkedin.com/in/minvoo
+
+[Spring-url]: https://spring.io/projects/spring-boot
+
+[SpringBoot]: https://img.shields.io/badge/SPRINGBOOT-6db33f?style=for-the-badge&logo=spring&logoColor=white
+
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+
+[Bootstrap-url]: https://getbootstrap.com
+
+[JavaSite]: https://img.shields.io/badge/JAVA-%23ED8B00?style=for-the-badge&logo=java&logoColor=white
+
+[Java-url]: https://www.oracle.com/java/
+
+[HTMLSite]: https://img.shields.io/badge/html-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
+
+[HTML-url]: https://www.w3schools.com/html/
+
+[HibernateSite]: https://img.shields.io/badge/hibernate-bcae79.svg?style=for-the-badge&logo=hibernate&logoColor=white
+
+[Hibernate-url]: https://hibernate.org/
+
+[CSSSite]: https://img.shields.io/badge/css-2862e9.svg?style=for-the-badge&logo=css3&logoColor=white
+
+[CSS-url]: https://www.w3schools.com/css/default.asp
+
+[ReactSite]: https://img.shields.io/badge/react-6cc2ff.svg?style=for-the-badge&logo=react&logoColor=white
+
+[React-url]: https://reactjs.org
+
+[MysqlSite]: https://img.shields.io/badge/mysql-3e6e93.svg?style=for-the-badge&logo=mysql&logoColor=white
+
+[Mysql-url]: https://www.mysql.com
